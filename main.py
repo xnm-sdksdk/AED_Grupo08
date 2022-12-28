@@ -10,7 +10,7 @@ from tkinter import messagebox
 
 
 
-
+# Register Window
 def register():
     register_window = Toplevel(main)
     register_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
@@ -25,7 +25,7 @@ def register():
 
 
 
-
+# Login Window
 def login():
     login_window = Toplevel(main)
     login_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
@@ -33,10 +33,6 @@ def login():
     # register_window.resizable(0,0)
     login_window.focus_force() # Forces the focus to the current window
     login_window.grab_set() # Directs all events to the active window
-    
-
-
-
 
 
 
