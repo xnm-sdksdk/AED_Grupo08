@@ -28,7 +28,7 @@ from tkinter import messagebox
 # Main Window Initialization 
 main = Tk()
 
-# Defining the app with and height
+# Defining the app with and height - DIMENSIONS OF THE APP TO BE DECIDE LATER #########################
 main_width = 1000
 main_height = 500
 
@@ -43,13 +43,40 @@ y = (screen_height/2) - (main_height/2)
 # 
 main.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y))) # 
 main.title("To Do List") # Title of the app
-main.configure() # Background Configurations
+main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ################
 # main.resizable(0,0) disable resizing of the app
 
 
 # Main Window Components
 
+# Name Label
+namelbl = Label(main, text="Name", font= ("Sans Serif", 20), fg="#000")
+namelbl.place(x=500,y=150)
 
 
+# Name Entry
+name_Entry = Entry(main) # variable =
+name_Entry.place(x=650,y=160)
 
+
+# Password Label
+passwordlbl = Label(main, text="Password", font= ("Sans Serif", 20), fg="#000")
+passwordlbl.place(x=500,y=200)
+
+
+# Password Entry
+password_Entry = Entry(main)
+password_Entry.place(x=650,y=200)
+
+
+# Login Button
+login_btn = Button(main, text = 'Login', font=('Sans Serif', 16, "bold"),width=6) # command =  
+login_btn.place(x=700,y=250)
+
+
+# Register Button
+register_btn = Button(main, text = 'Register', font=('Sans Serif', 16, "bold"),width=6) # command =
+register_btn.place(x=500,y=250)
+
+# Main Window Loop
 main.mainloop()
