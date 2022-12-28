@@ -36,6 +36,47 @@ def register():
     register_window.grab_set() # Directs all events to the active window
 
 
+    # Register Components
+    # Name Label
+    name_registerlbl = Label(register_window, text="Register", font= ("Sans Serif", 20), fg="#000")
+    name_registerlbl.place(x=500,y=100)
+    
+    
+    # Name Entry
+    name_register_entry = Entry(register_window) # variable =
+    name_register_entry.place(x=650,y=110)
+    
+    
+    # Email Label
+    email_lbl = Label(register_window, text="Email", font= ("Sans Serif", 20), fg="#000")
+    email_lbl.place(x=500,y=150)
+    
+    
+    # Email Entry
+    email_entry = Entry(register_window) # variable =
+    email_entry.place(x=650,y=160)
+    
+    
+    # Password Label
+    password_registerlbl = Label(register_window, text="Password", font= ("Sans Serif", 20), fg="#000")
+    password_registerlbl.place(x=500,y=200)
+
+
+    # Password Entry
+    password_entry = Entry(register_window) # variable =
+    password_entry.place()
+
+
+    # Type of User Confirmation
+    # User
+    cb1 = Checkbutton(register_window, text="User")
+    cb1.place(x=500,y=250) 
+    
+    
+    # Admin
+    cb2 = Checkbutton(register_window, text="Admin")
+    cb2.place(x=600,y=250)
+
 
 
 
