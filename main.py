@@ -64,7 +64,7 @@ def register():
 
     # Password Entry
     password_entry = Entry(register_window) # variable =
-    password_entry.place()
+    password_entry.place(x=650,y=210)
 
 
     # Type of User Confirmation
