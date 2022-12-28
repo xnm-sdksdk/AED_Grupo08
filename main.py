@@ -10,6 +10,22 @@ from tkinter import messagebox
 
 
 
+
+
+
+def menu():
+    menu_window = Toplevel(main)
+    menu_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
+    menu_window.title("Register")
+    # register_window.resizable(0,0)
+    menu_window.focus_force() # Forces the focus to the current window
+    menu_window.grab_set() # Directs all events to the active window
+
+
+
+
+
+
 # Register Window
 def register():
     register_window = Toplevel(main)
@@ -18,8 +34,6 @@ def register():
     # register_window.resizable(0,0)
     register_window.focus_force() # Forces the focus to the current window
     register_window.grab_set() # Directs all events to the active window
-
-
 
 
 
