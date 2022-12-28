@@ -27,7 +27,12 @@ def register():
 
 
 def login():
-    pass
+    login_window = Toplevel(main)
+    login_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
+    login_window.title("Register")
+    # register_window.resizable(0,0)
+    login_window.focus_force() # Forces the focus to the current window
+    login_window.grab_set() # Directs all events to the active window
     
 
 
@@ -81,7 +86,7 @@ password_Entry.place(x=650,y=200)
 
 
 # Login Button
-login_btn = Button(main, text = 'Login', font=('Sans Serif', 16, "bold"),width=6) # command =  
+login_btn = Button(main, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command = login)
 login_btn.place(x=700,y=250)
 
 
