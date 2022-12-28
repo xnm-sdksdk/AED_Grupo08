@@ -11,6 +11,13 @@ from tkinter import messagebox
 
 
 
+def register():
+    register_window = Toplevel(main)
+    register_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
+    register_window.title("Register")
+    # register_window.resizable(0,0)
+    register_window.focus_force() # Forces the focus to the current window
+    register_window.grab_set() # Directs all events to the active window
 
 
 
@@ -18,6 +25,10 @@ from tkinter import messagebox
 
 
 
+
+def login():
+    pass
+    
 
 
 
@@ -75,7 +86,7 @@ login_btn.place(x=700,y=250)
 
 
 # Register Button
-register_btn = Button(main, text = 'Register', font=('Sans Serif', 16, "bold"),width=6) # command =
+register_btn = Button(main, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register) # command =
 register_btn.place(x=500,y=250)
 
 # Main Window Loop
