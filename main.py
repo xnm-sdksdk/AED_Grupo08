@@ -121,7 +121,9 @@ def login():
     password_login_entry.place(x=250,y=110)
 
 
-
+    # Login Button
+    login_button = Button(login_window, text="Login", font=('Sans Serif', 12, "bold"),width=4) # command
+    login_button.place(x=350,y=150)
 
 
 
