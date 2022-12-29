@@ -12,14 +12,15 @@ from tkinter import messagebox
 
 
 
-
+"""
 def menu():
     menu_window = Toplevel(main)
     menu_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
-    menu_window.title("Register")
+    menu_window.title("Menu")
     # register_window.resizable(0,0)
     menu_window.focus_force() # Forces the focus to the current window
     menu_window.grab_set() # Directs all events to the active window
+"""
 
 
 
@@ -27,8 +28,30 @@ def menu():
 
 
 # Register Window
+# Function to allow user to register in the app
 def register():
     register_window = Toplevel(main)
+    
+    
+    # Global Variables to use the, outside of the defined function
+    global name_regist_temp
+    global age_regist_temp
+    global email_regist_temp
+    global password_regist_temp
+    global user_type
+    
+    
+    # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
+    name_regist_temp = StringVar()
+    age_regist_temp = StringVar()
+    email_regist_temp = StringVar()
+    password_regist_temp = StringVar()
+    user_type = StringVar()
+    # Set User by Default as Type of  
+    user_type.set('user')
+    
+    
+    
     register_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
     register_window.title("Register")
     # register_window.resizable(0,0)
@@ -43,8 +66,18 @@ def register():
     
     
     # Name Entry
-    name_register_entry = Entry(register_window) # variable =
+    name_register_entry = Entry(register_window, textvariable = name_regist_temp)
     name_register_entry.place(x=650,y=110)
+    
+    
+    # Age Label
+    age_registerlbl = Label(register_window, text="Age")
+    age_registerlbl.place()
+    
+    
+    # Age Entry
+    age_register_entry = Entry(register_window, textvariable = age_regist_temp)
+    age_register_entry.place()
     
     
     # Email Label
@@ -53,7 +86,7 @@ def register():
     
     
     # Email Entry
-    email_entry = Entry(register_window) # variable =
+    email_entry = Entry(register_window, textvariable= email_regist_temp)
     email_entry.place(x=650,y=160)
     
     
@@ -63,24 +96,56 @@ def register():
 
 
     # Password Entry
-    password_entry = Entry(register_window) # variable =
+    password_entry = Entry(register_window, show="*", textvariable = password_regist_temp)
     password_entry.place(x=650,y=210)
 
 
+    # LabelFrame for CheckButtons
+    lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=200, height=200, relief="raised", bd="3", fg="black")
+    lblFrame_user.place(x=100,y=100)
+    
+
     # Type of User Confirmation
     # User
-    cb1 = Checkbutton(register_window, text="User")
-    cb1.place(x=500,y=250) 
+    cb1 = Checkbutton(lblFrame_user, text="User", variable= user_type, value= "user")
+    cb1.place(x=0,y=0) 
     
     
     # Admin
-    cb2 = Checkbutton(register_window, text="Admin")
-    cb2.place(x=600,y=250)
+    cb2 = Checkbutton(lblFrame_user, text="Admin", variable= user_type, value= "admin")
+    cb2.place(x=0,y=20)
 
+
+    submit_register_btn = Button(register_window, text="Submit", state="active", font=("Sans Serif", 12, "bold"), fg="#000000", command= verification)
+    submit_register_btn.place()
+
+
+
+
+# Function to verify all inputs inserted by the user in the register function 
+def verification():
+    
+    # Retrieve the values from the items with the specified key     
+    name = name_regist_temp.get()
+    age = age_regist_temp.get()
+    email = email_regist_temp.get()
+    password = password_regist_temp.get()
+    user = user_type.get()
+    
+    
+    
+    # To check all files inside the directory
+    all_profiles = os.listdir()
+    # print(all_profiles) Verify if is all good
+
+    
+    if name == "" or age == "" or email == "" or password == "" or user == "":
+        messagebox.showerror("showerror", "All fields are required!")
 
 
 
 # Login Window
+# Function to allow user to sign up and access the app
 def login():
     login_window = Toplevel(main)
     
@@ -126,6 +191,13 @@ def login():
     login_button.place(x=350,y=150)
 
 
+
+# Login Session
+# Function that is going to be executed after the login is successfully done
+# To decide if the menu is going to be created within this function
+def login_session():
+    pass    
+    
 
 
 # Main Window Initialization 
