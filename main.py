@@ -84,6 +84,15 @@ def register():
 def login():
     login_window = Toplevel(main)
     
+    # Global variables
+    
+    
+    # Temporary Values
+    login_name_temp = StringVar()
+    login_password_temp = StringVar()
+    
+    
+    
     # Different dimensions for the login window
     login_width = 500
     login_height = 250
@@ -100,7 +109,7 @@ def login():
     name_loginlbl.place(x=80,y=50)
 
     # Name Entry
-    name_login_entry = Entry(login_window) # variable =
+    name_login_entry = Entry(login_window, textvariable = login_name_temp)
     name_login_entry.place(x=250,y=60)
 
     # Password Label
@@ -108,7 +117,7 @@ def login():
     password_loginlbl.place(x=80,y=100)    
     
     # Password Entry
-    password_login_entry = Entry(login_window) # variable =
+    password_login_entry = Entry(login_window, show="*", textvariable = login_password_temp)
     password_login_entry.place(x=250,y=110)
 
 
