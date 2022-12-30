@@ -224,8 +224,21 @@ main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ########
 
 
 
+# Left Frame of the main Window
+
+# Text Label - To
+to_txt = Label(main, text="To", font=("Sans Serif", 30, "bold"), fg="green")
+to_txt.place(x=100,y=100)
 
 
+# Text Label - Do
+do_txt = Label(main, text="Do", font=("Sans Serif", 30, "bold"), fg="yellow")
+do_txt.place(x=170,y=100)
+
+
+# Text Label - List
+list_txt = Label(main, text="List", font=("Sans Serif", 30, "bold"), fg="red")
+list_txt.place(x=240,y=100)
 
 
 # Main Window Components
