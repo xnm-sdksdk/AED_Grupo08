@@ -1,7 +1,7 @@
 import os
 from tkinter import *
 from tkinter import ttk
-import datetime
+from datetime import datetime
 from tkinter import messagebox
 
 
