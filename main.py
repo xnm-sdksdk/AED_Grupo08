@@ -61,63 +61,63 @@ def register():
 
     # Register Components
     # Name Label
-    name_registerlbl = Label(register_window, text="Register", font= ("Sans Serif", 20), fg="#000")
-    name_registerlbl.place(x=500,y=100)
+    name_registerlbl = Label(register_window, text="Register", font= ("Sans Serif", 18), fg="#000")
+    name_registerlbl.place(x=350,y=80)
     
     
     # Name Entry
     name_register_entry = Entry(register_window, textvariable = name_regist_temp)
-    name_register_entry.place(x=650,y=110)
+    name_register_entry.place(x=480,y=85)
     
     
     # Age Label
-    age_registerlbl = Label(register_window, text="Age")
-    age_registerlbl.place()
+    age_registerlbl = Label(register_window, text="Age", font=("Sans Serif", 18), fg="#000")
+    age_registerlbl.place(x=350, y=130)
     
     
     # Age Entry
     age_register_entry = Entry(register_window, textvariable = age_regist_temp)
-    age_register_entry.place()
+    age_register_entry.place(x=480,y=135)
     
     
     # Email Label
-    email_lbl = Label(register_window, text="Email", font= ("Sans Serif", 20), fg="#000")
-    email_lbl.place(x=500,y=150)
+    email_lbl = Label(register_window, text="Email", font= ("Sans Serif", 18), fg="#000")
+    email_lbl.place(x=350,y=180)
     
     
     # Email Entry
     email_entry = Entry(register_window, textvariable= email_regist_temp)
-    email_entry.place(x=650,y=160)
+    email_entry.place(x= 480,y= 185)
     
     
     # Password Label
-    password_registerlbl = Label(register_window, text="Password", font= ("Sans Serif", 20), fg="#000")
-    password_registerlbl.place(x=500,y=200)
+    password_registerlbl = Label(register_window, text="Password", font= ("Sans Serif", 18), fg="#000")
+    password_registerlbl.place(x=350,y=230)
 
 
     # Password Entry
     password_entry = Entry(register_window, show="*", textvariable = password_regist_temp)
-    password_entry.place(x=650,y=210)
+    password_entry.place(x=480,y=235)
 
 
     # LabelFrame for CheckButtons
-    lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=200, height=200, relief="raised", bd="3", fg="black")
-    lblFrame_user.place(x=100,y=100)
+    lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
+    lblFrame_user.place(x= 350,y=300)
     
 
     # Type of User Confirmation
     # User
-    cb1 = Checkbutton(lblFrame_user, text="User", variable= user_type, value= "user")
+    cb1 = Radiobutton(lblFrame_user, text="User", variable= user_type, value= "user")
     cb1.place(x=0,y=0) 
     
     
     # Admin
-    cb2 = Checkbutton(lblFrame_user, text="Admin", variable= user_type, value= "admin")
+    cb2 = Radiobutton(lblFrame_user, text="Admin", variable= user_type, value= "admin")
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(register_window, text="Submit", state="active", font=("Sans Serif", 12, "bold"), fg="#000000", command= verification)
-    submit_register_btn.place()
+    submit_register_btn = Button(register_window, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= verification)
+    submit_register_btn.place(x=550,y=300)
 
 
 
@@ -140,7 +140,7 @@ def verification():
 
     
     if name == "" or age == "" or email == "" or password == "" or user == "":
-        messagebox.showerror("showerror", "All fields are required!")
+        messagebox.showerror("Error!", "All fields are required!")
 
 
 
