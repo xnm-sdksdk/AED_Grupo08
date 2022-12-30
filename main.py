@@ -141,6 +141,18 @@ def verification():
     
     if name == "" or age == "" or email == "" or password == "" or user == "":
         messagebox.showerror("Error!", "All fields are required!")
+        
+        
+    for profile_check in all_profiles:
+        if name == profile_check:
+            messagebox.showerror("Error!", "Account already exists!")
+            return 
+            
+            
+        # else for placement of the treeview
+
+
+
 
 
 
@@ -239,6 +251,11 @@ do_txt.place(x=170,y=100)
 # Text Label - List
 list_txt = Label(main, text="List", font=("Sans Serif", 30, "bold"), fg="red")
 list_txt.place(x=240,y=100)
+
+
+
+# Image - To Be Decided
+
 
 
 # Main Window Components
