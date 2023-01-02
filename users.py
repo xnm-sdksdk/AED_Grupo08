@@ -37,7 +37,8 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
         return 
         
     for profile_check in all_profiles:
-        if name == profile_check:
+        
+        if name_regist_temp == profile_check:
             messagebox.showerror("Regist", "Account already exists!")
             return 
             
