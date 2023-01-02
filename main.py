@@ -101,6 +101,13 @@ def register():
     password_entry = Entry(register_window, show="*", textvariable = password_regist_temp)
     password_entry.place(x=480,y=235)
 
+    # Password Confirmation Label
+    password_confirmationlbl = Label(register_window, )
+    password_confirmationlbl.place(x=480,y=260)
+    
+    # Password Confirmation Entry
+    password_confirmation_entry = Entry(register_window, show="*")
+    password_confirmation_entry.place(x=480,y=285)
 
     # LabelFrame for CheckButtons
     lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
