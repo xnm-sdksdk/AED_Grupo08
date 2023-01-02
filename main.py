@@ -40,6 +40,7 @@ def register():
     global age_regist_temp
     global email_regist_temp
     global password_regist_temp
+    global password_confirmation
     global user_type
     
     
@@ -49,6 +50,7 @@ def register():
     email_regist_temp = StringVar()
     password_regist_temp = StringVar()
     user_type = StringVar()
+    password_confirmation = StringVar()
     # Set User by Default as Type of  
     user_type.set('user')
     
@@ -106,7 +108,7 @@ def register():
     password_confirmationlbl.place(x=480,y=260)
     
     # Password Confirmation Entry
-    password_confirmation_entry = Entry(register_window, show="*")
+    password_confirmation_entry = Entry(register_window, show="*", textvariable = password_confirmation)
     password_confirmation_entry.place(x=480,y=285)
 
     # LabelFrame for CheckButtons
@@ -125,43 +127,8 @@ def register():
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(register_window, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= verification)
+    submit_register_btn = Button(register_window, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: verification(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
     submit_register_btn.place(x=550,y=300)
-
-
-
-
-# Function to verify all inputs inserted by the user in the register function 
-def verification():
-    
-    # Retrieve the values from the items with the specified key     
-    name = name_regist_temp.get()
-    age = age_regist_temp.get()
-    email = email_regist_temp.get()
-    password = password_regist_temp.get()
-    user = user_type.get()
-    
-    
-    
-    # To check all files inside the directory
-    all_profiles = os.listdir()
-    # print(all_profiles) Verify if is all good
-
-    
-    if name == "" or age == "" or email == "" or password == "" or user == "":
-        messagebox.showerror("Error!", "All fields are required!")
-        
-        
-    for profile_check in all_profiles:
-        if name == profile_check:
-            messagebox.showerror("Error!", "Account already exists!")
-            return 
-            
-            
-        # else for placement of the treeview
-
-
-
 
 
 
