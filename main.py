@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 
 # Import the other files
-from user import *
+from users import *
 
 
 
