@@ -1,8 +1,8 @@
-import os
 from tkinter import *
 from tkinter import ttk
 from datetime import datetime
 from tkinter import messagebox
+import os
 
 
 # Import the other files
