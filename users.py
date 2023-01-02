@@ -8,13 +8,6 @@ users_file = "files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
 def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_regist_temp, password_confirmation, user_type):
-    # Retrieve the values from the items with the specified key     
-    name = name_regist_temp.get()
-    age = age_regist_temp.get()
-    email = email_regist_temp.get()
-    password = password_regist_temp.get()
-    confirmation = password_confirmation.get()
-    user = user_type.get()
     
     
     name_regist_temp = StringVar()
