@@ -50,15 +50,19 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
     messagebox.showinfo("Register", "Account has been created!")
     
 
+# Function to verify if the user is registered in the app
 def authentication(name_regist_temp, password_regist_temp):
-    fileAuth = open(users_file, "r", encoding="utf-8")
-    listUsers = fileAuth.readlines()
-    fileAuth.close()
+    fileAuth = open(users_file, "r", encoding="utf-8") # Open the file to read using the utf-8 encoding
+    listUsers = fileAuth.readlines() # read all lines and save in a list
+    fileAuth.close() # Close the file
     
-    for line in listUsers:
-        if line.split(";")[0] == name_regist_temp and line.split(";")[0] == password_regist_temp:
+    for line in listUsers:  # For each line in the list
+        # If the name and password are the same as the ones in the file
+        if line.split(";")[0] == name_regist_temp and line.split(";")[0] == password_regist_temp: 
+            # If the user is logged in, show a success message
             entry_msg = "Welcome " + name_regist_temp
             messagebox.showinfo("Login", entry_msg)
             return entry_msg
+    # Otherwise show an error message
     messagebox.showerror("Login", "The user or password are incorrect!")
     return ""
