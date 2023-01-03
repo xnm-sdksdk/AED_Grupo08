@@ -104,8 +104,8 @@ def register():
     password_entry.place(x=480,y=235)
 
     # Password Confirmation Label
-    password_confirmationlbl = Label(register_window, )
-    password_confirmationlbl.place(x=480,y=260)
+    password_confirmationlbl = Label(register_window, text="Confirm", font= ("Sans Serif", 18), fg="#000")
+    password_confirmationlbl.place(x=350,y=280)
     
     # Password Confirmation Entry
     password_confirmation_entry = Entry(register_window, show="*", textvariable = password_confirmation)
@@ -113,7 +113,7 @@ def register():
 
     # LabelFrame for CheckButtons
     lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
-    lblFrame_user.place(x= 350,y=300)
+    lblFrame_user.place(x= 350,y=350)
     
 
     # Type of User Confirmation
@@ -128,7 +128,7 @@ def register():
 
 
     submit_register_btn = Button(register_window, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: verification(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
-    submit_register_btn.place(x=550,y=300)
+    submit_register_btn.place(x=550,y=350)
 
 
 
