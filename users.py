@@ -39,7 +39,7 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
     for profile_check in all_profiles:
         
         if name_regist_temp == profile_check:
-            messagebox.showerror("Regist", "Account already exists!")
+            messagebox.showerror("Register", "Account already exists!")
             return 
             
     
@@ -47,8 +47,18 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
     line = name_regist_temp + "," + age_regist_temp + "," + email_regist_temp + "," + password_regist_temp + "," + user_type + "\n"
     usersf.write(line)
     usersf.close()
-    messagebox.showinfo("Regist", "Account has been created!")
+    messagebox.showinfo("Register", "Account has been created!")
     
 
-
-
+def authentication(name_regist_temp, password_regist_temp):
+    fileAuth = open(users_file, "r", encoding="utf-8")
+    listUsers = fileAuth.readlines()
+    fileAuth.close()
+    
+    for line in listUsers:
+        if line.split(";")[0] == name_regist_temp and line.split(";")[0] == password_regist_temp:
+            entry_msg = "Welcome " + name_regist_temp
+            messagebox.showinfo("Login", entry_msg)
+            return entry_msg
+    messagebox.showerror("Login", "The user or password are incorrect!")
+    return ""
