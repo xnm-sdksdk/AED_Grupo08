@@ -1,4 +1,4 @@
-# AED_Project_22_23
+# AED_Grupo08
 
 Final project of the discipline of algorithmics and data structures, developed by Bernardo Ferreira, João Rocha and Nuno Mendonça.
 
