@@ -13,16 +13,19 @@ from users import *
 
 
 
-
-"""
 def menu():
+    
+    
+    main.withdraw()
+    
     menu_window = Toplevel(main)
+    menu_window.focus_force()
+    menu_window.grab_set()
+    
+    
     menu_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
     menu_window.title("Menu")
     # register_window.resizable(0,0)
-    menu_window.focus_force() # Forces the focus to the current window
-    menu_window.grab_set() # Directs all events to the active window
-"""
 
 
 
@@ -32,16 +35,25 @@ def menu():
 # Register Window
 # Function to allow user to register in the app
 def register():
+    
+    main.withdraw() # Function to close the main window
+    
+    # Create a new window in Top Level Mode
     register_window = Toplevel(main)
+    register_window.focus_force() # Forces the focus to the current window
+    register_window.grab_set() # Directs all events to the active window
+    
     
     
     # Global Variables to use the, outside of the defined function
+    """
     global name_regist_temp
     global age_regist_temp
     global email_regist_temp
     global password_regist_temp
     global password_confirmation
     global user_type
+    """
     
     
     # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
@@ -59,8 +71,8 @@ def register():
     register_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
     register_window.title("Register")
     # register_window.resizable(0,0)
-    register_window.focus_force() # Forces the focus to the current window
-    register_window.grab_set() # Directs all events to the active window
+    #register_window.focus_force() # Forces the focus to the current window
+    #register_window.grab_set() # Directs all events to the active window
 
 
     # Register Components
@@ -135,7 +147,12 @@ def register():
 # Login Window
 # Function to allow user to sign up and access the app
 def login():
+    
+    main.withdraw()
+    
     login_window = Toplevel(main)
+    login_window.focus_force()
+    login_window.grab_set()
     
     # Global variables
     
@@ -152,8 +169,9 @@ def login():
     login_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(login_width, login_height, int(x), int(y)))
     login_window.title("Login")
     # register_window.resizable(0,0)
-    login_window.focus_force() # Forces the focus to the current window
-    login_window.grab_set() # Directs all events to the active window
+    
+    #login_window.focus_force() # Forces the focus to the current window
+    #login_window.grab_set() # Directs all events to the active window
 
 
     # Login Components
@@ -175,7 +193,7 @@ def login():
 
 
     # Login Button
-    login_button = Button(login_window, text="Login", font=('Sans Serif', 12, "bold"),width=4) # command
+    login_button = Button(login_window, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: login_session(login_name_temp.get(), login_password_temp.get()))
     login_button.place(x=350,y=150)
 
 
@@ -210,9 +228,79 @@ main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ########
 # main.resizable(0,0) disable resizing of the app
 
 
+# Side Bar Settings
+
+# For minimum and maximum size of the side bar
+side_min = 50
+side_max = 200
+
+expansion = side_min # To expand the side bar
+
+expanded = False # To check if the side bar is expanded or not
+
+def grow_sidebar():
+    global expansion, expanded
+    
+    expansion += 10 # To increase the width of the side bar
+    repeat = main.after(5, grow_sidebar) # To repeat the function every 5 miliseconds
+    frame.config(width=expansion) # To change the width of the side bar to the new width
+    
+    if expansion >= side_max:
+        expanded = True
+        main.after_cancel(repeat) # after_cancel() is used to cancel the function after it has been called
+        colorize()
+
+def shrink_sidebar():
+    global expansion, expanded
+    
+    expansion -= 10 # To decrease the width of the side bar
+    repeat = main.after(5, shrink_sidebar) # To repeat the function every 5 miliseconds
+    frame.config(width=expansion) # To change the width of the side bar to the new width
+    
+    if expansion <= side_min:
+        expanded = False
+        main.after_cancel(repeat) # after_cancel() is used to cancel the function after it has been called
+        colorize()
+
+def colorize():
+    if expanded == True:
+        home_button_icon.config(text="Home", image="", font=(10))
+        settings__button_icon.config(text="Settings", image="", font=(10))
+        about__button_icon.config(text="About", image="", font=(10))
+
+    else:
+        home_button_icon.config(text="Home", image= home, font=(10))
+        settings__button_icon.config(text="Settings", image= settings, font=(10))
+        about__button_icon.config(text="About", image=about, font=(10))
+
+
+
+
+main.update()
+frame = Frame(main, bg='red', width=50, height=main.winfo_height())
+frame.place(x=0,y=0)
 
 
 # Left Frame of the main Window
+# Images
+home = PhotoImage(file = "Images/home.png")
+settings = PhotoImage(file = "Images/settings.png")
+about = PhotoImage(file = "Images/about.png")
+
+
+# Side Bar Buttons
+home_button_icon = Button(frame, image=home, bg="red", relief="flat")
+settings__button_icon = Button(frame, image=settings, bg="red", relief="flat")
+about__button_icon = Button(frame, image=about, bg="red", relief="flat")
+
+home_button_icon.place(x=10, y=50)
+settings__button_icon.place(x=10, y=150)
+about__button_icon.place(x=10, y=250)
+
+
+frame.bind("<Enter>", lambda event: grow_sidebar())
+frame.bind("<Leave>", lambda event: shrink_sidebar())
+
 
 # Text Label - To
 to_txt = Label(main, text="To", font=("Sans Serif", 30, "bold"), fg="green")

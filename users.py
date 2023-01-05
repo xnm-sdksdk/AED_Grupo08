@@ -30,11 +30,12 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
         messagebox.showerror("Error!", "All fields are required!")
         return
     
-    
+    """
     # verification for the password confirmation
     if password_regist_temp != password_confirmation:
         messagebox.showerror("Regist", "Password does not match!")
         return 
+    """
         
     for profile_check in all_profiles:
         
@@ -56,7 +57,12 @@ def authentication(name_regist_temp, password_regist_temp):
     listUsers = fileAuth.readlines() # read all lines and save in a list
     fileAuth.close() # Close the file
     
+    
+    
     for line in listUsers:  # For each line in the list
+        if name_regist_temp == "" or password_regist_temp == "":
+            messagebox.showerror("Login", "All fields are required!")
+            return
         # If the name and password are the same as the ones in the file
         if line.split(";")[0] == name_regist_temp and line.split(";")[0] == password_regist_temp: 
             # If the user is logged in, show a success message
