@@ -231,7 +231,7 @@ main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ########
 # Side Bar Settings
 
 # For minimum and maximum size of the side bar
-side_min = 50
+side_min = 100
 side_max = 200
 
 expansion = side_min # To expand the side bar
