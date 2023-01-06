@@ -264,13 +264,13 @@ def shrink_sidebar():
 # Function to change the color of the text and images of the side bar buttons
 def colorize(): 
     if expanded == True:
-        home_button_icon.config(text="To Do List", image="", font=(10))
-        settings__button_icon.config(text="Settings", image="", font=(10))
+        home_button_icon.config(text="To Do List", image="", font=(10), bg="red")
+        settings__button_icon.config(text="Settings", image="", font=(10), bg="red")
         #about__button_icon.config(text="About", image="", font=(10))
 
     else:
-        home_button_icon.config(text="To Do List", image= home, font=(10))
-        settings__button_icon.config(text="Settings", image= settings, font=(10))
+        home_button_icon.config(text="To Do List", image= catalog, font=(10), bg="red")
+        settings__button_icon.config(text="Settings", image= settings, font=(10), bg="red")
         #about__button_icon.config(text="About", image=about, font=(10))
 
 
@@ -294,7 +294,7 @@ settings__button_icon = Button(frame, image=settings, bg="red", relief="flat")
 
 home_button_icon.place(x=10, y=50)
 settings__button_icon.place(x=10, y=150)
-about__button_icon.place(x=10, y=250)
+#about__button_icon.place(x=10, y=250)
 
 
 # Binding the mouse to the side bar to expand and shrink it when the mouse is over it
