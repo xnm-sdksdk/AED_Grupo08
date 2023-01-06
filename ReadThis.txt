@@ -20,6 +20,7 @@ Side Bar:
 - Catalog;
 - Notifications;
 - Favorites;
+- Profile;
 - Settings;
 
 
