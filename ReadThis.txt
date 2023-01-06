@@ -15,26 +15,33 @@ To Do:
 - Admin vs user authentication
 
 
+Side Bar:
+
+- Catalog;
+- Notifications;
+- Favorites;
+- Settings;
+
+
 Admin:
 
-- Manage users;
-- Manage notifications;
-- Configure notifications;
+- Manage users; - Settings;
+- Manage notifications; - Notifications;
+- Configure notifications; - Notifications;
 
 
 User:
 
-- Create account / authenticate;
-- Consume catalog;
-- Filtrate and order catalog;
-- Comment, Like, Punctuate;
-- Manage favorites;
-- Receive notifications;
+- Create account / authenticate; - Main;
+- Consume catalog; - Catalog;
+- Filtrate and order catalog; - Catalog;
+- Comment, Like, Punctuate; - Catalog;
+- Manage favorites; - Favorites;
+- Receive notifications; - Notifications;
 
 ........
 ........
 ...........
-
 
 
 #############################################################################################################################################################
