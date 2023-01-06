@@ -224,6 +224,7 @@ y = (screen_height/2) - (main_height/2)
 # 
 main.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y))) # 
 main.title("To Do List") # Title of the app
+main.resizable(0,0) # Disable resizing of the app
 main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ################
 # main.resizable(0,0) disable resizing of the app
 
@@ -232,12 +233,14 @@ main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ########
 
 # For minimum and maximum size of the side bar
 side_min = 100
-side_max = 250
+side_max = 200
 
 expansion = side_min # To expand the side bar
 
 expanded = False # To check if the side bar is expanded or not
 
+
+# Function to grow the side bar to the maximum size
 def grow_sidebar():
     global expansion, expanded
     
@@ -250,6 +253,7 @@ def grow_sidebar():
         main.after_cancel(repeat) # after_cancel() is used to cancel the function after it has been called
         colorize()
 
+# Function to shrink the side bar to the minimum size
 def shrink_sidebar():
     global expansion, expanded
     
@@ -262,7 +266,8 @@ def shrink_sidebar():
         main.after_cancel(repeat) # after_cancel() is used to cancel the function after it has been called
         colorize()
 
-def colorize():
+# Function to change the color of the text and images of the side bar buttons
+def colorize(): 
     if expanded == True:
         home_button_icon.config(text="To Do List", image="", font=(10))
         settings__button_icon.config(text="Settings", image="", font=(10))
@@ -298,6 +303,8 @@ settings__button_icon.place(x=10, y=150)
 about__button_icon.place(x=10, y=250)
 
 
+# Binding the mouse to the side bar to expand and shrink it when the mouse is over it
+# The binding function is used to deal with events, we use it with the frame component
 frame.bind("<Enter>", lambda event: grow_sidebar())
 frame.bind("<Leave>", lambda event: shrink_sidebar())
 
