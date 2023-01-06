@@ -266,12 +266,12 @@ def colorize():
     if expanded == True:
         home_button_icon.config(text="To Do List", image="", font=(10))
         settings__button_icon.config(text="Settings", image="", font=(10))
-        about__button_icon.config(text="About", image="", font=(10))
+        #about__button_icon.config(text="About", image="", font=(10))
 
     else:
         home_button_icon.config(text="To Do List", image= home, font=(10))
         settings__button_icon.config(text="Settings", image= settings, font=(10))
-        about__button_icon.config(text="About", image=about, font=(10))
+        #about__button_icon.config(text="About", image=about, font=(10))
 
 
 
@@ -283,15 +283,14 @@ frame.place(x=0,y=0)
 
 # Left Frame of the main Window
 # Images
-home = PhotoImage(file = "Images/todolist.png")
+catalog = PhotoImage(file = "Images/catalog.png")
 settings = PhotoImage(file = "Images/settings.png")
-about = PhotoImage(file = "Images/about.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image=home, bg="red", relief="flat")
+home_button_icon = Button(frame, image=catalog, bg="red", relief="flat")
 settings__button_icon = Button(frame, image=settings, bg="red", relief="flat")
-about__button_icon = Button(frame, image=about, bg="red", relief="flat")
+
 
 home_button_icon.place(x=10, y=50)
 settings__button_icon.place(x=10, y=150)
