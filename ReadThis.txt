@@ -13,6 +13,24 @@ To Do:
 - Create Task menu;
 - Create settings menu;
 - Admin vs user authentication
+
+
+Admin:
+
+- Manage users;
+- Manage notifications;
+- Configure notifications;
+
+
+User:
+
+- Create account / authenticate;
+- Consume catalog;
+- Filtrate and order catalog;
+- Comment, Like, Punctuate;
+- Manage favorites;
+- Receive notifications;
+
 ........
 ........
 ...........
