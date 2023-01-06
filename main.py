@@ -232,7 +232,7 @@ main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ########
 
 # For minimum and maximum size of the side bar
 side_min = 100
-side_max = 200
+side_max = 250
 
 expansion = side_min # To expand the side bar
 
@@ -264,12 +264,12 @@ def shrink_sidebar():
 
 def colorize():
     if expanded == True:
-        home_button_icon.config(text="Home", image="", font=(10))
+        home_button_icon.config(text="To Do List", image="", font=(10))
         settings__button_icon.config(text="Settings", image="", font=(10))
         about__button_icon.config(text="About", image="", font=(10))
 
     else:
-        home_button_icon.config(text="Home", image= home, font=(10))
+        home_button_icon.config(text="To Do List", image= home, font=(10))
         settings__button_icon.config(text="Settings", image= settings, font=(10))
         about__button_icon.config(text="About", image=about, font=(10))
 
@@ -277,13 +277,13 @@ def colorize():
 
 
 main.update()
-frame = Frame(main, bg='red', width=50, height=main.winfo_height())
+frame = Frame(main, bg='red', width=100, height=main.winfo_height())
 frame.place(x=0,y=0)
 
 
 # Left Frame of the main Window
 # Images
-home = PhotoImage(file = "Images/home.png")
+home = PhotoImage(file = "Images/todolist.png")
 settings = PhotoImage(file = "Images/settings.png")
 about = PhotoImage(file = "Images/about.png")
 
