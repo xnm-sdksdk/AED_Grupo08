@@ -304,22 +304,6 @@ frame.bind("<Enter>", lambda event: grow_sidebar())
 frame.bind("<Leave>", lambda event: shrink_sidebar())
 
 
-# Text Label - To
-to_txt = Label(main, text="To", font=("Sans Serif", 30, "bold"), fg="green")
-to_txt.place(x=100,y=100)
-
-
-# Text Label - Do
-do_txt = Label(main, text="Do", font=("Sans Serif", 30, "bold"), fg="yellow")
-do_txt.place(x=170,y=100)
-
-
-# Text Label - List
-list_txt = Label(main, text="List", font=("Sans Serif", 30, "bold"), fg="red")
-list_txt.place(x=240,y=100)
-
-
-
 # Image - To Be Decided
 
 
