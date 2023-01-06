@@ -13,7 +13,7 @@ from todolist import *
 
 
 
-
+"""
 def menu():
     
     
@@ -28,6 +28,7 @@ def menu():
     menu_window.title("Menu")
     # register_window.resizable(0,0)
 
+"""
 
 
 
@@ -36,9 +37,6 @@ def menu():
 # Register Window
 # Function to allow user to register in the app
 def register():
-    
-    main.withdraw() # Function to close the main window
-    
     # Create a new window in Top Level Mode
     register_window = Toplevel(main)
     register_window.focus_force() # Forces the focus to the current window
@@ -78,7 +76,7 @@ def register():
 
     # Register Components
     # Name Label
-    name_registerlbl = Label(register_window, text="Register", font= ("Sans Serif", 18), fg="#000")
+    name_registerlbl = Label(register_window, text="Name", font= ("Sans Serif", 18), fg="#000")
     name_registerlbl.place(x=350,y=80)
     
     
@@ -148,8 +146,6 @@ def register():
 # Login Window
 # Function to allow user to sign up and access the app
 def login():
-    
-    main.withdraw()
     
     login_window = Toplevel(main)
     login_window.focus_force()
@@ -227,11 +223,9 @@ main.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(
 main.title("To Do List") # Title of the app
 main.resizable(0,0) # Disable resizing of the app
 main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ################
-# main.resizable(0,0) disable resizing of the app
 
 
 # Side Bar Settings
-
 # For minimum and maximum size of the side bar
 side_min = 100
 side_max = 200
@@ -281,8 +275,8 @@ def colorize():
 
 
 
-
 main.update()
+# Frame of the window without action
 frame = Frame(main, bg='red', width=100, height=main.winfo_height())
 frame.place(x=0,y=0)
 

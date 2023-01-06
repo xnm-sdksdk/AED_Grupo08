@@ -4,7 +4,7 @@ from tkinter import messagebox
 import os
 
 # path to users.txt file
-users_file = "files/users.txt"
+users_file = "Files\\users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
 def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_regist_temp, password_confirmation, user_type):
@@ -18,6 +18,10 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
     password_confirmation = StringVar()
     # Set User by Default as Type of  
     user_type.set('user')
+    
+    
+    
+    
     
     
     # To check all files inside the directory
@@ -44,7 +48,7 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
             return 
             
     
-    usersf = open(users_file, "a")
+    usersf = open(users_file, "a", encoding="utf-8")
     line = name_regist_temp + "," + age_regist_temp + "," + email_regist_temp + "," + password_regist_temp + "," + user_type + "\n"
     usersf.write(line)
     usersf.close()
