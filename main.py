@@ -39,7 +39,7 @@ def menu():
 def register():
     
     panelRegister = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500) 
-    panelRegister.place(x=200,y=100)
+    panelRegister.place(x=200,y=50)
    
     # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
     name_regist_temp = StringVar()
@@ -127,25 +127,16 @@ def register():
 # Function to allow user to sign up and access the app
 def login():
     
-    login_window = Toplevel(main)
-    login_window.focus_force()
-    login_window.grab_set()
     
-    # Global variables
+    loginPaned = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    loginPaned.place(x=200,y=50)
     
     
     # Temporary Values
     login_name_temp = StringVar()
     login_password_temp = StringVar()
     
-    
-    
-    # Different dimensions for the login window
-    login_width = 500
-    login_height = 250
-    login_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(login_width, login_height, int(x), int(y)))
-    login_window.title("Login")
-    # register_window.resizable(0,0)
+
     
     #login_window.focus_force() # Forces the focus to the current window
     #login_window.grab_set() # Directs all events to the active window
@@ -153,24 +144,24 @@ def login():
 
     # Login Components
     # Name Label 
-    name_loginlbl = Label(login_window, text="Name", font=("Sans Serif", 20), fg="#000")
+    name_loginlbl = Label(loginPaned, text="Name", font=("Sans Serif", 20), fg="#000")
     name_loginlbl.place(x=80,y=50)
 
     # Name Entry
-    name_login_entry = Entry(login_window, textvariable = login_name_temp)
+    name_login_entry = Entry(loginPaned, textvariable = login_name_temp)
     name_login_entry.place(x=250,y=60)
 
     # Password Label
-    password_loginlbl = Label(login_window, text="Password", font=("Sans Serif", 20), fg="#000")
+    password_loginlbl = Label(loginPaned, text="Password", font=("Sans Serif", 20), fg="#000")
     password_loginlbl.place(x=80,y=100)    
     
     # Password Entry
-    password_login_entry = Entry(login_window, show="*", textvariable = login_password_temp)
+    password_login_entry = Entry(loginPaned, show="*", textvariable = login_password_temp)
     password_login_entry.place(x=250,y=110)
 
 
     # Login Button
-    login_button = Button(login_window, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: login_session(login_name_temp.get(), login_password_temp.get()))
+    login_button = Button(loginPaned, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: login_session(login_name_temp.get(), login_password_temp.get()))
     login_button.place(x=350,y=150)
 
 
