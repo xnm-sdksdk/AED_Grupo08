@@ -37,24 +37,10 @@ def menu():
 # Register Window
 # Function to allow user to register in the app
 def register():
-    # Create a new window in Top Level Mode
-    register_window = Toplevel(main)
-    register_window.focus_force() # Forces the focus to the current window
-    register_window.grab_set() # Directs all events to the active window
     
-    
-    
-    # Global Variables to use the, outside of the defined function
-    """
-    global name_regist_temp
-    global age_regist_temp
-    global email_regist_temp
-    global password_regist_temp
-    global password_confirmation
-    global user_type
-    """
-    
-    
+    panelRegister = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500) 
+    panelRegister.place(x=200,y=100)
+   
     # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
     name_regist_temp = StringVar()
     age_regist_temp = StringVar()
@@ -66,64 +52,58 @@ def register():
     user_type.set('user')
     
     
-    
-    register_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
-    register_window.title("Register")
-    # register_window.resizable(0,0)
-    #register_window.focus_force() # Forces the focus to the current window
-    #register_window.grab_set() # Directs all events to the active window
 
 
     # Register Components
     # Name Label
-    name_registerlbl = Label(register_window, text="Name", font= ("Sans Serif", 18), fg="#000")
+    name_registerlbl = Label(panelRegister, text="Name", font= ("Sans Serif", 18), fg="#000")
     name_registerlbl.place(x=350,y=80)
     
     
     # Name Entry
-    name_register_entry = Entry(register_window, textvariable = name_regist_temp)
+    name_register_entry = Entry(panelRegister, textvariable = name_regist_temp)
     name_register_entry.place(x=480,y=85)
     
     
     # Age Label
-    age_registerlbl = Label(register_window, text="Age", font=("Sans Serif", 18), fg="#000")
+    age_registerlbl = Label(panelRegister, text="Age", font=("Sans Serif", 18), fg="#000")
     age_registerlbl.place(x=350, y=130)
     
     
     # Age Entry
-    age_register_entry = Entry(register_window, textvariable = age_regist_temp)
+    age_register_entry = Entry(panelRegister, textvariable = age_regist_temp)
     age_register_entry.place(x=480,y=135)
     
     
     # Email Label
-    email_lbl = Label(register_window, text="Email", font= ("Sans Serif", 18), fg="#000")
+    email_lbl = Label(panelRegister, text="Email", font= ("Sans Serif", 18), fg="#000")
     email_lbl.place(x=350,y=180)
     
     
     # Email Entry
-    email_entry = Entry(register_window, textvariable= email_regist_temp)
+    email_entry = Entry(panelRegister, textvariable= email_regist_temp)
     email_entry.place(x= 480,y= 185)
     
     
     # Password Label
-    password_registerlbl = Label(register_window, text="Password", font= ("Sans Serif", 18), fg="#000")
+    password_registerlbl = Label(panelRegister, text="Password", font= ("Sans Serif", 18), fg="#000")
     password_registerlbl.place(x=350,y=230)
 
 
     # Password Entry
-    password_entry = Entry(register_window, show="*", textvariable = password_regist_temp)
+    password_entry = Entry(panelRegister, show="*", textvariable = password_regist_temp)
     password_entry.place(x=480,y=235)
 
     # Password Confirmation Label
-    password_confirmationlbl = Label(register_window, text="Confirm", font= ("Sans Serif", 18), fg="#000")
+    password_confirmationlbl = Label(panelRegister, text="Confirm", font= ("Sans Serif", 18), fg="#000")
     password_confirmationlbl.place(x=350,y=280)
     
     # Password Confirmation Entry
-    password_confirmation_entry = Entry(register_window, show="*", textvariable = password_confirmation)
+    password_confirmation_entry = Entry(panelRegister, show="*", textvariable = password_confirmation)
     password_confirmation_entry.place(x=480,y=285)
 
     # LabelFrame for CheckButtons
-    lblFrame_user = LabelFrame(register_window, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
+    lblFrame_user = LabelFrame(panelRegister, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
     lblFrame_user.place(x= 350,y=350)
     
 
@@ -138,7 +118,7 @@ def register():
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(register_window, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: verification(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
+    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: verification(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
     submit_register_btn.place(x=550,y=350)
 
 
