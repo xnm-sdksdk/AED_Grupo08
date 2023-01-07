@@ -16,13 +16,7 @@ To Do:
 
 
 Side Bar:
-
-- Catalog;
-- Notifications;
-- Favorites;
-- Profile;
-- Settings;
-
+- Back End Side;
 
 Admin:
 
@@ -69,6 +63,12 @@ Doing:
 Done:
 
 
+Side Bar: - UI Done
+- Catalog;
+- Notifications;
+- Favorites;
+- Profile;
+- Settings;
 
 
 
