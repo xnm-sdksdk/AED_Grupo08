@@ -265,13 +265,18 @@ def shrink_sidebar():
 def colorize(): 
     if expanded == True:
         home_button_icon.config(text="To Do List", image="", font=(10), bg="red")
-        settings__button_icon.config(text="Settings", image="", font=(10), bg="red")
-        #about__button_icon.config(text="About", image="", font=(10))
+        notifications_button_icon.config(text="Notifications", image="", font=(10), bg="red")
+        favorites_button_icon.config(text="Favorites", image="", font=(10), bg="red")
+        profile_button_icon.config(text="Profile", image="", font=(10), bg="red")
+        settings_button_icon.config(text="Settings", image="", font=(10), bg="red")
+        
 
     else:
         home_button_icon.config(text="To Do List", image= catalog, font=(10), bg="red")
-        settings__button_icon.config(text="Settings", image= settings, font=(10), bg="red")
-        #about__button_icon.config(text="About", image=about, font=(10))
+        notifications_button_icon.config(text="Notifications", image= notifications, font=(10), bg="red")
+        favorites_button_icon.config(text="Favorites", image= favorites, font=(10), bg="red")
+        profile_button_icon.config(text="Profile", image= profile, font=(10), bg="red")
+        settings_button_icon.config(text="Settings", image= settings, font=(10), bg="red")
 
 
 
@@ -284,17 +289,26 @@ frame.place(x=0,y=0)
 # Left Frame of the main Window
 # Images
 catalog = PhotoImage(file = "Images/catalog.png")
+notifications = PhotoImage(file = "Images/notification.png")
+favorites = PhotoImage(file="Images/favorites.png")
+profile = PhotoImage(file="Images/profile.png")
 settings = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
 home_button_icon = Button(frame, image=catalog, bg="red", relief="flat")
-settings__button_icon = Button(frame, image=settings, bg="red", relief="flat")
+notifications_button_icon = Button(frame, image = notifications, bg="red", relief="flat")
+favorites_button_icon = Button(frame, image=favorites, bg="red", relief="flat")
+profile_button_icon = Button(frame, image=profile, bg="red", relief="flat")
+settings_button_icon = Button(frame, image=settings, bg="red", relief="flat")
 
+# Placing the buttons of the side bar
+home_button_icon.place(x=20, y=50)
+notifications_button_icon.place(x=20, y=120)
+favorites_button_icon.place(x=20, y=190)
+profile_button_icon.place(x=20, y=260)
+settings_button_icon.place(x=20, y=330)
 
-home_button_icon.place(x=10, y=50)
-settings__button_icon.place(x=10, y=150)
-#about__button_icon.place(x=10, y=250)
 
 
 # Binding the mouse to the side bar to expand and shrink it when the mouse is over it
