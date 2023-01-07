@@ -44,6 +44,9 @@ User:
 
 Doing:
 
+
+- MERGING THE UI ELEMENTS FROM WINDOWS TO PANED WINDOWS - NOTE: CHECK UI FROM EX 13
+
 - Main Window;
 - Back-end register and login;
 - Integration of windows;
