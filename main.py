@@ -11,25 +11,28 @@ from todolist import *
 
 
 
+def catalog():
+    pass
 
 
-"""
-def menu():
-    
-    
-    main.withdraw()
-    
-    menu_window = Toplevel(main)
-    menu_window.focus_force()
-    menu_window.grab_set()
-    
-    
-    menu_window.geometry("{:.0f}x{:.0f}+{:.0f}+{:.0f}".format(main_width, main_height, int(x), int(y)))
-    menu_window.title("Menu")
-    # register_window.resizable(0,0)
 
-"""
+def notifications():
+    pass
 
+
+
+def favorites():
+    pass
+
+
+
+def profile():
+    pass
+
+
+
+def settings():
+    pass
 
 
 
@@ -259,19 +262,19 @@ frame.place(x=0,y=0)
 
 # Left Frame of the main Window
 # Images
-catalog = PhotoImage(file = "Images/catalog.png")
-notifications = PhotoImage(file = "Images/notification.png")
-favorites = PhotoImage(file="Images/favorites.png")
-profile = PhotoImage(file="Images/profile.png")
-settings = PhotoImage(file = "Images/settings.png")
+catalogImg = PhotoImage(file = "Images/catalog.png")
+notificationsImg = PhotoImage(file = "Images/notification.png")
+favoritesImg = PhotoImage(file="Images/favorites.png")
+profileImg = PhotoImage(file="Images/profile.png")
+settingsImg = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image=catalog, bg="red", relief="flat")
-notifications_button_icon = Button(frame, image = notifications, bg="red", relief="flat")
-favorites_button_icon = Button(frame, image=favorites, bg="red", relief="flat")
-profile_button_icon = Button(frame, image=profile, bg="red", relief="flat")
-settings_button_icon = Button(frame, image=settings, bg="red", relief="flat")
+home_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
+notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
+favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
+profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile)
+settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
 
 # Placing the buttons of the side bar
 home_button_icon.place(x=20, y=50)
