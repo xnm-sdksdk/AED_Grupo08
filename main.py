@@ -270,7 +270,7 @@ def colorize():
         profile_button_icon.config(text="Profile", image="", font=(10), bg="red")
         settings_button_icon.config(text="Settings", image="", font=(10), bg="red")
         
-
+    # If the side bar is not expanded then the images are going to be displayed
     else:
         home_button_icon.config(text="To Do List", image= catalog, font=(10), bg="red")
         notifications_button_icon.config(text="Notifications", image= notifications, font=(10), bg="red")
