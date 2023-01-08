@@ -8,6 +8,10 @@ import os
 # Import the other files
 from users import *
 from todolist import *
+from notifications import *
+from favorites import *
+from profile import *
+from settings import *
 
 
 
@@ -76,7 +80,7 @@ def favorites():
 
 
 
-def profile():
+def profile_Menu():
     profilePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     profilePanel.place(x=200,y=50)
     
