@@ -18,7 +18,7 @@ def catalog():
 
 
     # List Box to visualize the current info
-    todolistBox = Listbox(panelCatalog, width=50, height=15)
+    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single")
     todolistBox.place(x=250,y=50)
     
 
