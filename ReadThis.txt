@@ -67,6 +67,7 @@ Done:
 
 
 Side Bar: - UI Done
+- Home;
 - Catalog;
 - Notifications;
 - Favorites;
