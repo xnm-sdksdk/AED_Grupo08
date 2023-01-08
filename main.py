@@ -261,6 +261,48 @@ def login():
 def login_session():
     pass    
     
+    
+    
+    
+    
+    
+def home_menu():
+    # Main Window Components
+    
+    homePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    homePanel.place(x=200,y=50)
+    
+    # Name Label
+    namelbl = Label(homePanel, text="Name", font= ("Sans Serif", 20), fg="#000")
+    namelbl.place(x=150,y=100)
+
+
+    # Name Entry
+    name_Entry = Entry(homePanel) # variable =
+    name_Entry.place(x=350,y=110)
+
+
+    # Password Label
+    passwordlbl = Label(homePanel, text="Password", font= ("Sans Serif", 20), fg="#000")
+    passwordlbl.place(x=150,y=150)
+
+
+    # Password Entry
+    password_Entry = Entry(homePanel) # variable =
+    password_Entry.place(x=350,y=150)
+
+
+    # Login Button
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command = login)
+    login_btn.place(x=350,y=250)
+
+
+    # Register Button
+    register_btn = Button(homePanel, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register)
+    register_btn.place(x=200,y=250)
+        
+    
+    
 
 
 # Main Window Initialization 
@@ -359,7 +401,7 @@ settingsImg = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat") # command
+home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat", command = home_menu)
 catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
 notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
 favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
@@ -386,36 +428,7 @@ frame.bind("<Leave>", lambda event: shrink_sidebar())
 
 
 
-# Main Window Components
-
-# Name Label
-namelbl = Label(main, text="Name", font= ("Sans Serif", 20), fg="#000")
-namelbl.place(x=500,y=150)
-
-
-# Name Entry
-name_Entry = Entry(main) # variable =
-name_Entry.place(x=650,y=160)
-
-
-# Password Label
-passwordlbl = Label(main, text="Password", font= ("Sans Serif", 20), fg="#000")
-passwordlbl.place(x=500,y=200)
-
-
-# Password Entry
-password_Entry = Entry(main) # variable =
-password_Entry.place(x=650,y=200)
-
-
-# Login Button
-login_btn = Button(main, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command = login)
-login_btn.place(x=700,y=250)
-
-
-# Register Button
-register_btn = Button(main, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register)
-register_btn.place(x=500,y=250)
+home_menu()
 
 # Main Window Loop
 main.mainloop()
