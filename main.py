@@ -409,7 +409,7 @@ home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat", comma
 catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
 notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
 favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
-profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile)
+profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile_Menu)
 settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
 
 # Placing the buttons of the side bar
