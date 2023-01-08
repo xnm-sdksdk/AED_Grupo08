@@ -66,6 +66,13 @@ Doing:
 Done:
 
 
+- UI Pages:
+
+- Catalog;
+
+
+
+
 Side Bar: - UI Done
 - Home;
 - Catalog;
