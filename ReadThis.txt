@@ -68,7 +68,9 @@ Done:
 
 - UI Pages:
 
+- Home;
 - Catalog;
+- Profile;
 
 
 
