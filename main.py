@@ -12,7 +12,11 @@ from todolist import *
 
 
 def catalog():
-    pass
+    
+    panelCatalog = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    panelCatalog.place(x=200,y=50)
+
+    insertTask
 
 
 
