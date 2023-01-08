@@ -82,7 +82,42 @@ def profile():
 
 
 def settings():
-    pass
+    
+    settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    settingsPanel.place(x=200,y=50)
+    
+    
+    # Username Info
+    usernameInfo = Label(settingsPanel, text="Username: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    usernameInfo.place(x=50,y=0)
+    
+
+    # Age Info
+    ageInfo = Label(settingsPanel, text="Age: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    ageInfo.place(x=50,y=50)
+    
+    
+    # Email Info
+    emailInfo = Label(settingsPanel, text="Email: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    emailInfo.place(x=50,y=100)
+    
+    
+    # Password Info
+    passwordInfo = Label(settingsPanel, text="Password: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    passwordInfo.place(x=50,y=150)
+    
+    
+    # Display Password CheckButton
+    pwdDisplay = Checkbutton(settingsPanel, text="Display Password", font=("Sans Serif", 15, "bold"), fg="#000000")
+    pwdDisplay.place(x=50,y=200)
+    
+
+
+
+
+
+
+
 
 
 
