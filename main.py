@@ -238,7 +238,8 @@ def shrink_sidebar():
 # Function to change the color of the text and images of the side bar buttons
 def colorize(): 
     if expanded == True:
-        home_button_icon.config(text="To Do List", image="", font=(10), bg="red")
+        home_button_icon.config(text="Home", image="", font=(10), bg="red")
+        catalog_button_icon.config(text="To Do List", image="", font=(10), bg="red")
         notifications_button_icon.config(text="Notifications", image="", font=(10), bg="red")
         favorites_button_icon.config(text="Favorites", image="", font=(10), bg="red")
         profile_button_icon.config(text="Profile", image="", font=(10), bg="red")
@@ -246,11 +247,12 @@ def colorize():
         
     # If the side bar is not expanded then the images are going to be displayed
     else:
-        home_button_icon.config(text="To Do List", image= catalog, font=(10), bg="red")
-        notifications_button_icon.config(text="Notifications", image= notifications, font=(10), bg="red")
-        favorites_button_icon.config(text="Favorites", image= favorites, font=(10), bg="red")
-        profile_button_icon.config(text="Profile", image= profile, font=(10), bg="red")
-        settings_button_icon.config(text="Settings", image= settings, font=(10), bg="red")
+        home_button_icon.config(text="Home", image= homeImg, font=(10), bg="red")
+        catalog_button_icon.config(text="To Do List", image= catalogImg, font=(10), bg="red")
+        notifications_button_icon.config(text="Notifications", image= notificationsImg, font=(10), bg="red")
+        favorites_button_icon.config(text="Favorites", image= favoritesImg, font=(10), bg="red")
+        profile_button_icon.config(text="Profile", image= profileImg, font=(10), bg="red")
+        settings_button_icon.config(text="Settings", image= settingsImg, font=(10), bg="red")
 
 
 
@@ -262,6 +264,7 @@ frame.place(x=0,y=0)
 
 # Left Frame of the main Window
 # Images
+homeImg = PhotoImage(file = "Images/home.png")
 catalogImg = PhotoImage(file = "Images/catalog.png")
 notificationsImg = PhotoImage(file = "Images/notification.png")
 favoritesImg = PhotoImage(file="Images/favorites.png")
@@ -270,18 +273,20 @@ settingsImg = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
+home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat") # command
+catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
 notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
 favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
 profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile)
 settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
 
 # Placing the buttons of the side bar
-home_button_icon.place(x=20, y=50)
-notifications_button_icon.place(x=20, y=120)
-favorites_button_icon.place(x=20, y=190)
-profile_button_icon.place(x=20, y=260)
-settings_button_icon.place(x=20, y=330)
+home_button_icon.place(x=20, y=20)
+catalog_button_icon.place(x=20, y=90)
+notifications_button_icon.place(x=20, y=160)
+favorites_button_icon.place(x=20, y=230)
+profile_button_icon.place(x=20, y=300)
+settings_button_icon.place(x=20, y=370)
 
 
 
