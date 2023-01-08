@@ -10,7 +10,7 @@ from users import *
 from todolist import *
 from notifications import *
 from favorites import *
-from profile import *
+from profileSettings import *
 from settings import *
 
 
