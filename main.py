@@ -17,44 +17,49 @@ def catalog():
     panelCatalog.place(x=200,y=50)
 
 
-    # List Box to visualize the current info
-    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single")
-    todolistBox.place(x=250,y=50)
-    
-
     # Entry Label - To Do List
     cataloglbl = Label(panelCatalog, text="To Do List", font=("Sans Serif", 20, "bold"), fg="#000")
     cataloglbl.place(x=0, y=0)
 
 
+    # List Box to visualize the current info
+    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single")
+    todolistBox.place(x=250,y=80)
+    
+
+    # Number os Tasks Label
+    numberTasks= Label(panelCatalog, text="Number of Tasks: ", font=("Sans Serif", 10, "bold"), fg="#000000")
+    numberTasks.place(x=250,y=0)
+    
+
     # Insert Task Entry
     insertTask = Entry(panelCatalog, width=30) # textvariable
-    insertTask.place(x=250,y=0)
+    insertTask.place(x=250,y=30)
     
     
     # Button Add Task
     addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000") #command= lambda: add_task(insertTask.get())
-    addTask.place(x=0,y=50)
+    addTask.place(x=30,y=80)
 
 
     # Delete Task Button
     deleteTask = Button(panelCatalog, text="Delete Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    deleteTask.place(x=0,y=110)
+    deleteTask.place(x=30,y=140)
 
 
     # Sort ASC Button
     sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    sortAscTask.place(x=0,y=170)
+    sortAscTask.place(x=30,y=200)
 
 
     # Sort DESC Button
     sortDescTask = Button(panelCatalog, text="Sort DESC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    sortDescTask.place(x=0,y=230)
+    sortDescTask.place(x=30,y=260)
     
     
     # Delete All Button
     deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    deleteAllTask.place(x=0,y=290)
+    deleteAllTask.place(x=30,y=320)
 
 
 
