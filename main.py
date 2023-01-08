@@ -16,7 +16,48 @@ def catalog():
     panelCatalog = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     panelCatalog.place(x=200,y=50)
 
-    insertTask
+
+    # List Box to visualize the current info
+    todolistBox = Listbox(panelCatalog, width=50, height=15)
+    todolistBox.place(x=250,y=50)
+    
+
+    # Entry Label - To Do List
+    cataloglbl = Label(panelCatalog, text="To Do List", font=("Sans Serif", 20, "bold"), fg="#000")
+    cataloglbl.place(x=0, y=0)
+
+
+    # Insert Task Entry
+    insertTask = Entry(panelCatalog, width=30) # textvariable
+    insertTask.place(x=250,y=0)
+    
+    
+    # Button Add Task
+    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000") #command= lambda: add_task(insertTask.get())
+    addTask.place(x=0,y=50)
+
+
+    # Delete Task Button
+    deleteTask = Button(panelCatalog, text="Delete Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    deleteTask.place(x=0,y=110)
+
+
+    # Sort ASC Button
+    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    sortAscTask.place(x=0,y=170)
+
+
+    # Sort DESC Button
+    sortDescTask = Button(panelCatalog, text="Sort DESC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    sortDescTask.place(x=0,y=230)
+    
+    
+    # Delete All Button
+    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    deleteAllTask.place(x=0,y=290)
+
+
+
 
 
 
