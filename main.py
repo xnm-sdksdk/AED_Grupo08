@@ -18,6 +18,14 @@ from settings import *
 
 def catalog():
     
+    # Global Vars
+    global values
+    
+    
+    # Temporary Vars
+    values = StringVar()
+    
+    
     panelCatalog = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     panelCatalog.place(x=200,y=50)
 
@@ -175,13 +183,49 @@ def settings():
     settingsPanel.place(x=200,y=50)
     
     
+    # Changes Section
+    # Label to add categories
+    addCategorieslbl = Label(settingsPanel, text="Add Categories: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    addCategorieslbl.place(x=50,y=0)
+    
+    
+    # ComboBox to add categories
+    addCategoriesCombo = Combobox(settingsPanel,width=20) # VERY IMPORTANT - NEED TO ADD THE VALUES
+    addCategoriesCombo.place(x=300,y=5)
+    
+    # Button to add categories
+    addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addCategoriesButton.place(x=500,y=0)
+    
+    
+    # Button
+    removeCategoriesButton = Button(settingsPanel, text="Remove", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    removeCategoriesButton.place(x=600,y=0)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     # Statistics Part
+    # Label to show the number os tasks
     numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 15, "bold"), fg="#000000")
     numberTasks.place(x=50,y=200)
     
+    # Label to show the number of categories
     numberCategory = Label(settingsPanel, text="Number of Task By Categories: ", font=("Sans Serif", 15, "bold"), fg="#000000")
     numberCategory.place(x=50,y=250)
     
+    
+    # Label to show the time spent on the app
     timeSpaceWeek = Label(settingsPanel, text="Activity Last week: ", font=("Sans Serif", 15, "bold"), fg="#000000")
     timeSpaceWeek.place(x=50,y=300)
     
