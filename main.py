@@ -99,7 +99,7 @@ def notifications():
     pass
 
 
-
+# FUNCTION FAVORITES MENU
 def favorites():
     
     # Paned Window Favorites
@@ -116,6 +116,32 @@ def favorites():
     favoritesCombo.place(x=250,y=5)
 
 
+    # Comment on a favorite
+    commentlbl = Label(favoritesPanel, text="Leave a Comment...", font=("Sans Serif", 15, "bold"), fg="#000000")
+    commentlbl.place(x=0,y=75)
+    
+    
+    # Comment Listbox
+    commentlbox = Listbox(favoritesPanel, width=50, height=10, selectmode= "single")
+    commentlbox.place(x=100,y=120)
+    
+    
+    
+    # Add a comment Entry
+    commentEntry = Entry(favoritesPanel, width=30)
+    commentEntry.place(x=300,y=75)
+
+
+    # Add a comment Button
+    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    commentBtn.place(x=600, y=60)
+
+
+
+
+
+
+# FUNCTION PROFILE MENU 
 def profile_Menu():
     
     # Paned Window Profile
@@ -221,18 +247,7 @@ def settings():
     removeCategoriesButton.place(x=600,y=0)
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     # Statistics Part
     # Label to show the number os tasks
     numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 15, "bold"), fg="#000000")
