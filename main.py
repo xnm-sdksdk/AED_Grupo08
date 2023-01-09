@@ -102,10 +102,35 @@ def notifications():
     notificationsPanel.place(x=200,y=50)
     
     
+    seeNotifications = Label(notificationsPanel, text="See Notifications", font=("Sans Serif", 20, "bold"), fg="#000000")
+    seeNotifications.place(x=50,y=50)
+
+
+    # Button to open notifications
+    openNotifications = Button(notificationsPanel, text="Open", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")    
+    openNotifications.place(x=350,y=40)
     
     
-    
-    
+    # Label to keep track of notifications
+    notificationslbl = Label(notificationsPanel, text="You've got    Notifications", font=("Sans Serif", 20, "bold"), fg="#000000")
+    notificationslbl.place(x=50,y=150)
+
+
+    # TO delete
+    notificationsNumber = Label(notificationsPanel, text="3", font=("Sans Serif", 20, "bold"), fg="red")
+    notificationsNumber.place(x=220,y=150)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # FUNCTION FAVORITES MENU
