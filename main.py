@@ -427,7 +427,7 @@ def clock():
     
     # Label for the clock
     clocklbl = Label(main, font=("Sans Serif", 15), fg="#000")
-    clocklbl.place(x=750,y=0)
+    clocklbl.place(x=850,y=25)
     
     
     # Getting the current time
