@@ -75,6 +75,11 @@ def catalog():
     deleteAllTask.place(x=30,y=320)
 
 
+    # Add to favorites Button
+    addfavoritesButton = Button(panelCatalog, text="Add to\n Favorites", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addfavoritesButton.place(x=30,y=380)
+    
+
     # Section To filter the state of the tasks
     values = ["To Do", "Doing", "Done"]
     selectState = Combobox(panelCatalog, values=values, width=20)
