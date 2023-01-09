@@ -3,6 +3,7 @@ from tkinter import ttk
 from datetime import datetime
 from tkinter import messagebox
 from tkinter.ttk import Combobox
+from time import strftime
 import os
 
 
@@ -421,6 +422,22 @@ def home_menu():
     register_btn.place(x=200,y=250)
         
     
+# Function to display the current time
+def clock():
+    
+    # Label for the clock
+    clocklbl = Label(main, font=("Sans Serif", 15), fg="#000")
+    clocklbl.place(x=750,y=0)
+    
+    
+    # Getting the current time
+    time = strftime("%H:%M:%S")
+    
+    # Configure the clock label
+    clocklbl.config(text=time)
+    
+    # After 500 miliseconds the clock function is going to be called again
+    clocklbl.after(500, clock)
     
 
 
@@ -543,11 +560,10 @@ frame.bind("<Enter>", lambda event: grow_sidebar())
 frame.bind("<Leave>", lambda event: shrink_sidebar())
 
 
-# Image - To Be Decided
-
-
-
+# Function to display the home menu
 home_menu()
+# Function to display the current time
+clock()
 
 # Main Window Loop
 main.mainloop()
