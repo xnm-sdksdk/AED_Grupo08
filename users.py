@@ -4,7 +4,7 @@ from tkinter import messagebox
 import os
 
 # path to users.txt file
-users_file = "Files\\users.txt"
+users_file = "Files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
 def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_regist_temp, password_confirmation, user_type):
