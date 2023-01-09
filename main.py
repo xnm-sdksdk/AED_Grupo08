@@ -125,26 +125,36 @@ def favorites():
     favoritesCombo.place(x=250,y=5)
 
 
+    # Select Activity Label
+    activitylbl = Label(favoritesPanel, text="Select a Activity", font=("Sans Serif", 20, "bold"), fg="#000000")
+    activitylbl.place(x=0,y=70) 
+
+
+    # Activity Listbox
+    activitylbox = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20)
+    activitylbox.place(x=300,y=75)
+
+
+
     # Comment on a favorite
     commentlbl = Label(favoritesPanel, text="Leave a Comment...", font=("Sans Serif", 15, "bold"), fg="#000000")
-    commentlbl.place(x=0,y=75)
+    commentlbl.place(x=0,y=150)
     
     
     # Comment Listbox
     commentlbox = Listbox(favoritesPanel, width=50, height=10, selectmode= "single")
-    commentlbox.place(x=100,y=120)
+    commentlbox.place(x=100,y=200)
     
     
     
     # Add a comment Entry
     commentEntry = Entry(favoritesPanel, width=30)
-    commentEntry.place(x=300,y=75)
+    commentEntry.place(x=300,y=150)
 
 
     # Add a comment Button
     commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    commentBtn.place(x=600, y=60)
-
+    commentBtn.place(x=600, y=140)
 
 
 
