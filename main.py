@@ -128,13 +128,13 @@ def settings():
     
 
     # Label add Notitications
-    addNotificationLabel = Label(settingsPanel, text="Add Notifications", font=("Sans Serif", 15, "bold"), fg="#000000")
-    addNotificationLabel.place(x=50,y=0)
+    nameChangeLabel = Label(settingsPanel, text="Change Name", font=("Sans Serif", 15, "bold"), fg="#000000")
+    nameChangeLabel.place(x=50,y=0)
     
     
     # Entry add Notifications
-    addNotificationEntry = Entry(settingsPanel)
-    addNotificationEntry.place(x=300,y=5)
+    nameChangeEntry = Entry(settingsPanel)
+    nameChangeEntry.place(x=300,y=5)
 
 
     # Label Change Password
@@ -167,6 +167,21 @@ def settings():
     applyChangesPwd.place(x=500,y=50)
     applyChangesMail.place(x=500,y=100)
 
+    
+    # Statistics Part
+    numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    numberTasks.place(x=50,y=200)
+    
+    numberCategory = Label(settingsPanel, text="Number of Task By Categories: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    numberCategory.place(x=50,y=250)
+    
+    timeSpaceWeek = Label(settingsPanel, text="Activity Last week: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    timeSpaceWeek.place(x=50,y=300)
+    
+    timeSpaceMonth = Label(settingsPanel, text="Activity Last Month: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    timeSpaceMonth.place(x=50,y=350)
+    
+    
     
     
     
