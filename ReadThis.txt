@@ -74,6 +74,16 @@ Done:
 - Clock;
 
 
+- UI Finished:
+
+- Create and authenticate account;
+- Manage categories;
+- Change State;
+- Statistics Dashboard;
+
+
+
+
 - Side Bar
 - MERGING THE UI ELEMENTS FROM WINDOWS TO PANED WINDOWS;
 
