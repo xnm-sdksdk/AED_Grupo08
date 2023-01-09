@@ -45,7 +45,6 @@ User:
 Doing:
 
 
-- MERGING THE UI ELEMENTS FROM WINDOWS TO PANED WINDOWS - NOTE: CHECK UI FROM EX 13
 
 - Main Window;
 - Back-end register and login;
@@ -71,17 +70,12 @@ Done:
 - Home;
 - Catalog;
 - Profile;
-
-
-
-
-Side Bar: - UI Done
-- Home;
-- Catalog;
-- Notifications;
-- Favorites;
-- Profile;
 - Settings;
+- Clock;
+
+
+- Side Bar
+- MERGING THE UI ELEMENTS FROM WINDOWS TO PANED WINDOWS;
 
 
 
