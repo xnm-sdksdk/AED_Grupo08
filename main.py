@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from datetime import datetime
 from tkinter import messagebox
+from tkinter.ttk import Combobox
 import os
 
 
@@ -28,17 +29,17 @@ def catalog():
 
     # List Box to visualize the current info
     todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single")
-    todolistBox.place(x=250,y=80)
+    todolistBox.place(x=250,y=120)
     
 
     # Number os Tasks Label
     numberTasks= Label(panelCatalog, text="Number of Tasks: ", font=("Sans Serif", 10, "bold"), fg="#000000")
-    numberTasks.place(x=250,y=0)
+    numberTasks.place(x=250,y=50)
     
 
     # Insert Task Entry
     insertTask = Entry(panelCatalog, width=30) # textvariable
-    insertTask.place(x=250,y=30)
+    insertTask.place(x=250,y=90)
     
     
     # Button Add Task
@@ -66,8 +67,12 @@ def catalog():
     deleteAllTask.place(x=30,y=320)
 
 
-
-
+    # Section To filter the state of the tasks
+    values = ["To Do", "Doing", "Done"]
+    selectState = Combobox(panelCatalog, values=values, width=20)
+    selectState.place(x=250,y=10)
+    
+    
 
 
 def notifications():
@@ -81,6 +86,8 @@ def favorites():
 
 
 def profile_Menu():
+    
+    # Paned Window Profile
     profilePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     profilePanel.place(x=200,y=50)
     
@@ -114,18 +121,55 @@ def profile_Menu():
 
 
 def settings():
-    pass
+    
+    # Paned Window Settings
+    settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    settingsPanel.place(x=200,y=50)
     
 
+    # Label add Notitications
+    addNotificationLabel = Label(settingsPanel, text="Add Notifications", font=("Sans Serif", 15, "bold"), fg="#000000")
+    addNotificationLabel.place(x=50,y=0)
+    
+    
+    # Entry add Notifications
+    addNotificationEntry = Entry(settingsPanel)
+    addNotificationEntry.place(x=300,y=5)
 
 
+    # Label Change Password
+    pwdChangelbl = Label(settingsPanel, text="Change Password", font=("Sans Serif", 15, "bold"), fg="#000000")
+    pwdChangelbl.place(x=50,y=50)
 
 
+    # Entry Change Password
+    pwdChangeEntry = Entry(settingsPanel)
+    pwdChangeEntry.place(x=300,y=55)
 
 
+    # Label Change Email
+    emailChangelbl = Label(settingsPanel, text="Change Email", font=("Sans Serif", 15, "bold"), fg="#000000")
+    emailChangelbl.place(x=50,y=100)
+    
+    
+    # Entry Change Email
+    emailChangeEntry = Entry(settingsPanel)
+    emailChangeEntry.place(x=300,y=105)
 
 
+    # Defining Buttons to apply changes
+    applyChangesName = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    applyChangesPwd = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    applyChangesMail = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    
+    # Place buttons
+    applyChangesName.place(x=500,y=0)
+    applyChangesPwd.place(x=500,y=50)
+    applyChangesMail.place(x=500,y=100)
 
+    
+    
+    
 
 # Register Window
 # Function to allow user to register in the app
