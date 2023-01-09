@@ -81,6 +81,12 @@ def catalog():
     addfavoritesButton.place(x=30,y=380)
     
 
+    # Filter Button
+    filterTask = Button(panelCatalog, text="Filter", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    filterTask.place(x=500,y=5)
+    
+    
+
     # Section To filter the state of the tasks
     values = ["To Do", "Doing", "Done"]
     selectState = Combobox(panelCatalog, values=values, width=20)
@@ -100,8 +106,14 @@ def favorites():
     favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     favoritesPanel.place(x=200,y=50)
     
+    
+    # Label to select the favorite category
+    seeFavorites = Label(favoritesPanel, text="See Favorites", font=("Sans Serif", 20, "bold"), fg="#000000")
+    seeFavorites.place(x=0,y=0)
+    
     # ComboBox to select the favorite category
-
+    favoritesCombo = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20)
+    favoritesCombo.place(x=250,y=5)
 
 
 def profile_Menu():
@@ -427,7 +439,7 @@ def clock():
     
     # Label for the clock
     clocklbl = Label(main, font=("Sans Serif", 15), fg="#000")
-    clocklbl.place(x=850,y=25)
+    clocklbl.place(x=850,y=5)
     
     
     # Getting the current time
