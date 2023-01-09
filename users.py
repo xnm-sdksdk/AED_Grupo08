@@ -4,25 +4,11 @@ from tkinter import messagebox
 import os
 
 # path to users.txt file
-users_file = "Files/users.txt"
+users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
 def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_regist_temp, password_confirmation, user_type):
-    
-    
-    name_regist_temp = StringVar()
-    age_regist_temp = StringVar()
-    email_regist_temp = StringVar()
-    password_regist_temp = StringVar()
-    user_type = StringVar()
-    password_confirmation = StringVar()
-    # Set User by Default as Type of  
-    user_type.set('user')
-    
-    
-    
-    
-    
+     
     
     # To check all files inside the directory
     all_profiles = os.listdir()
@@ -33,6 +19,16 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
     if name_regist_temp == "" or age_regist_temp == "" or email_regist_temp == "" or password_regist_temp == "" or password_confirmation == "" or user_type == "":        
         messagebox.showerror("Error!", "All fields are required!")
         return
+    
+    
+    usersFilePath = open(users_file, "r", encoding="utf-8") # open in read mode
+    listUsers = usersFilePath.readlines() # read file to a list
+    usersFilePath.close() # close file
+    
+    for line in listUsers:
+        if name_regist_temp == line.split(";")[0]:
+            messagebox.showerror("Register", "Account already exists!")
+            return
     
     """
     # verification for the password confirmation
@@ -48,11 +44,11 @@ def verification(name_regist_temp, age_regist_temp, email_regist_temp, password_
             return 
             
     
-    usersf = open(users_file, "a", encoding="utf-8")
     line = name_regist_temp + "," + age_regist_temp + "," + email_regist_temp + "," + password_regist_temp + "," + user_type + "\n"
-    usersf.write(line)
-    usersf.close()
     messagebox.showinfo("Register", "Account has been created!")
+    
+    
+    
     
 
 # Function to verify if the user is registered in the app
