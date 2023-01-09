@@ -81,7 +81,12 @@ def notifications():
 
 
 def favorites():
-    pass
+    
+    # Paned Window Favorites
+    favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    favoritesPanel.place(x=200,y=50)
+    
+    # ComboBox to select the favorite category
 
 
 
@@ -113,8 +118,51 @@ def profile_Menu():
     
     
     # Display Password CheckButton
-    pwdDisplay = Checkbutton(profilePanel, text="Display Password", font=("Sans Serif", 15, "bold"), fg="#000000")
-    pwdDisplay.place(x=50,y=200)
+    #pwdDisplay = Checkbutton(profilePanel, text="Display Password", font=("Sans Serif", 15, "bold"), fg="#000000")
+    #pwdDisplay.place(x=50,y=200)
+
+
+    # Section to Change the user info
+    # Label to change name
+    nameChangeLabel = Label(profilePanel, text="Change Name", font=("Sans Serif", 15, "bold"), fg="#000000")
+    nameChangeLabel.place(x=50,y=250)
+    
+    
+    # Entry to change name
+    nameChangeEntry = Entry(profilePanel)
+    nameChangeEntry.place(x=300,y=255)
+
+
+    # Label Change Password
+    pwdChangelbl = Label(profilePanel, text="Change Password", font=("Sans Serif", 15, "bold"), fg="#000000")
+    pwdChangelbl.place(x=50,y=300)
+
+
+    # Entry Change Password
+    pwdChangeEntry = Entry(profilePanel)
+    pwdChangeEntry.place(x=300,y=305)
+
+
+    # Label Change Email
+    emailChangelbl = Label(profilePanel, text="Change Email", font=("Sans Serif", 15, "bold"), fg="#000000")
+    emailChangelbl.place(x=50,y=350)
+    
+    
+    # Entry Change Email
+    emailChangeEntry = Entry(profilePanel)
+    emailChangeEntry.place(x=300,y=355)
+
+
+    # Defining Buttons to apply changes
+    applyChangesName = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    applyChangesPwd = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    applyChangesMail = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    
+    # Place buttons
+    applyChangesName.place(x=500,y=240)
+    applyChangesPwd.place(x=500,y=290)
+    applyChangesMail.place(x=500,y=340)
+
 
 
 
@@ -126,47 +174,6 @@ def settings():
     settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     settingsPanel.place(x=200,y=50)
     
-
-    # Label add Notitications
-    nameChangeLabel = Label(settingsPanel, text="Change Name", font=("Sans Serif", 15, "bold"), fg="#000000")
-    nameChangeLabel.place(x=50,y=0)
-    
-    
-    # Entry add Notifications
-    nameChangeEntry = Entry(settingsPanel)
-    nameChangeEntry.place(x=300,y=5)
-
-
-    # Label Change Password
-    pwdChangelbl = Label(settingsPanel, text="Change Password", font=("Sans Serif", 15, "bold"), fg="#000000")
-    pwdChangelbl.place(x=50,y=50)
-
-
-    # Entry Change Password
-    pwdChangeEntry = Entry(settingsPanel)
-    pwdChangeEntry.place(x=300,y=55)
-
-
-    # Label Change Email
-    emailChangelbl = Label(settingsPanel, text="Change Email", font=("Sans Serif", 15, "bold"), fg="#000000")
-    emailChangelbl.place(x=50,y=100)
-    
-    
-    # Entry Change Email
-    emailChangeEntry = Entry(settingsPanel)
-    emailChangeEntry.place(x=300,y=105)
-
-
-    # Defining Buttons to apply changes
-    applyChangesName = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    applyChangesPwd = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    applyChangesMail = Button(settingsPanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    
-    # Place buttons
-    applyChangesName.place(x=500,y=0)
-    applyChangesPwd.place(x=500,y=50)
-    applyChangesMail.place(x=500,y=100)
-
     
     # Statistics Part
     numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 15, "bold"), fg="#000000")
