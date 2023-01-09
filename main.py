@@ -94,9 +94,18 @@ def catalog():
     
     
 
-
+# FUNCTION NOTIFICATIONS MENU
 def notifications():
-    pass
+    
+    # Paned Window Notifications
+    notificationsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    notificationsPanel.place(x=200,y=50)
+    
+    
+    
+    
+    
+    
 
 
 # FUNCTION FAVORITES MENU
