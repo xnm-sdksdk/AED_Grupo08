@@ -90,6 +90,9 @@ Done:
 
 
 
+- Register Verifications:
+
+- Blank fields;
 
 
 
