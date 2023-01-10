@@ -9,22 +9,19 @@ users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_202
 # Function to verify all inputs inserted by the user in the register function 
 def verification(name_regist_temp, password_regist_temp):
     
-    all_profiles = os.listdir()
-    
+    all_profiles = os.listdir("Files/users.txt")
     
     fUsers = open(users_file, "r", encoding="utf-8")
     usersList = fUsers.readlines()
-    name_check = usersList[0]
-    pwd_check = usersList[3]
     fUsers.close()
     
     for name in all_profiles:
-        if name_regist_temp != name_check: 
+        if name_regist_temp != usersList[0]: 
             messagebox.showerror("Login", "Invalid Username!")
             return
 
 # Function to verify if the user is registered in the app
-def authentication(name_regist_temp, age_regist_temp, email_regist_temp, password_regist_temp, password_confirmation, user_type, panelRegister):
+def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType, panelRegister):
     
     
     all_profiles = os.listdir()
@@ -32,17 +29,17 @@ def authentication(name_regist_temp, age_regist_temp, email_regist_temp, passwor
     
     
     # verification for empty fields
-    if name_regist_temp == "" or age_regist_temp == "" or email_regist_temp == "" or password_regist_temp == "" or password_confirmation == "" or user_type == "":        
+    if userName == "" or userAge == "" or userMail == "" or userPwd == "" or userPwdCheck == "" or userType == "":        
         messagebox.showerror("Register", "All fields are required!")
         return
     
     for name_check in all_profiles:
-        if name_regist_temp == name_check:
+        if userName == name_check:
             messagebox.showerror("Register", "An account with that name already exists!")
             return
         else:
             fUsers = open(users_file, "a", encoding="utf-8")
-            fields = name_regist_temp + ";" + age_regist_temp + ";" + email_regist_temp + ";" + password_regist_temp + ";" + user_type + "\n"
+            fields = userName + ";" + userAge + ";" + userMail + ";" + userPwd + ";" + userPwdCheck + ";" + userType + "\n"
             fUsers.write(fields)
             fUsers.close()
             messagebox.showinfo("Register", "Account has been created successfully!")

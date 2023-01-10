@@ -322,14 +322,14 @@ def register():
     panelRegister.place(x=200,y=50)
    
     # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
-    name_regist_temp = StringVar()
-    age_regist_temp = StringVar()
-    email_regist_temp = StringVar()
-    password_regist_temp = StringVar()
-    user_type = StringVar()
-    password_confirmation = StringVar()
+    userName = StringVar()
+    userAge = StringVar()
+    userMail = StringVar()
+    userPwd = StringVar()
+    userPwdCheck = StringVar()
+    userType = StringVar()
     # Set User by Default as Type of  
-    user_type.set('user')
+    userType.set('user')
     
     
 
@@ -341,7 +341,7 @@ def register():
     
     
     # Name Entry
-    name_register_entry = Entry(panelRegister, textvariable = name_regist_temp)
+    name_register_entry = Entry(panelRegister, textvariable = userName)
     name_register_entry.place(x=480,y=85)
     
     
@@ -351,7 +351,7 @@ def register():
     
     
     # Age Entry
-    age_register_entry = Entry(panelRegister, textvariable = age_regist_temp)
+    age_register_entry = Entry(panelRegister, textvariable = userAge)
     age_register_entry.place(x=480,y=135)
     
     
@@ -361,7 +361,7 @@ def register():
     
     
     # Email Entry
-    email_entry = Entry(panelRegister, textvariable= email_regist_temp)
+    email_entry = Entry(panelRegister, textvariable= userMail)
     email_entry.place(x= 480,y= 185)
     
     
@@ -371,7 +371,7 @@ def register():
 
 
     # Password Entry
-    password_entry = Entry(panelRegister, show="*", textvariable = password_regist_temp)
+    password_entry = Entry(panelRegister, show="*", textvariable = userPwd)
     password_entry.place(x=480,y=235)
 
     # Password Confirmation Label
@@ -379,7 +379,7 @@ def register():
     password_confirmationlbl.place(x=350,y=280)
     
     # Password Confirmation Entry
-    password_confirmation_entry = Entry(panelRegister, show="*", textvariable = password_confirmation)
+    password_confirmation_entry = Entry(panelRegister, show="*", textvariable = userPwdCheck)
     password_confirmation_entry.place(x=480,y=285)
 
     # LabelFrame for CheckButtons
@@ -389,16 +389,17 @@ def register():
 
     # Type of User Confirmation
     # User
-    cb1 = Radiobutton(lblFrame_user, text="User", variable= user_type, value= "user")
+    cb1 = Radiobutton(lblFrame_user, text="User", variable= userType, value= "user")
     cb1.place(x=0,y=0) 
     
     
     # Admin
-    cb2 = Radiobutton(lblFrame_user, text="Admin", variable= user_type, value= "admin")
+    cb2 = Radiobutton(lblFrame_user, text="Admin", variable= userType, value= "admin")
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get(), panelRegister)) # lambda function to call the function verification
+    # lambda function to call the function verification
+    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(userName.get(), userAge.get(), userMail.get(), userPwd.get(), userPwdCheck.get(), userType.get(), panelRegister))
     submit_register_btn.place(x=550,y=350)
 
 
@@ -409,8 +410,8 @@ def home_menu():
     
     # StringVars
     
-    login_name_temp = StringVar()
-    login_password_temp = StringVar()
+    userName = StringVar()
+    userPwd = StringVar()
     
     
     # Main Window Components
@@ -423,7 +424,7 @@ def home_menu():
 
 
     # Name Entry
-    name_Entry = Entry(homePanel, textvariable= login_name_temp)
+    name_Entry = Entry(homePanel, textvariable= userName)
     name_Entry.place(x=350,y=110)
 
 
@@ -433,18 +434,19 @@ def home_menu():
 
 
     # Password Entry
-    password_Entry = Entry(homePanel, show="*", textvariable=login_password_temp)
+    password_Entry = Entry(homePanel, show="*", textvariable= userPwd)
     password_Entry.place(x=350,y=150)
 
 
     # Login Button
-    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(login_name_temp.get(), login_password_temp.get()))
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get()))
     login_btn.place(x=350,y=250)
 
 
     # Register Button
     register_btn = Button(homePanel, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register)
     register_btn.place(x=200,y=250)
+        
         
     
 # Function to display the current time
