@@ -398,7 +398,7 @@ def register():
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
+    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get(), panelRegister)) # lambda function to call the function verification
     submit_register_btn.place(x=550,y=350)
 
 
