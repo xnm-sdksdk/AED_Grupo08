@@ -250,15 +250,11 @@ def profile_Menu():
 
 
     # Defining Buttons to apply changes
-    applyChangesName = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    applyChangesPwd = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    applyChangesMail = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    
+    applyChanges = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+ 
+ 
     # Place buttons
-    applyChangesName.place(x=500,y=240)
-    applyChangesPwd.place(x=500,y=290)
-    applyChangesMail.place(x=500,y=340)
-
+    applyChanges.place(x=500,y=300)
 
 
 
