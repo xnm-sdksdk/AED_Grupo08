@@ -55,6 +55,12 @@ Doing:
 
 
 
+- UI PAGES:
+- Home;
+- Catalog;
+- Settings;
+- Notifications;
+
 
 - Back-End:
 - Creating account - Verifications to be done;
@@ -76,10 +82,7 @@ Done:
 
 - UI Pages:
 
-- Home;
-- Catalog;
 - Profile;
-- Settings;
 - Clock;
 
 
