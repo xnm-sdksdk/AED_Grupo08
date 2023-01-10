@@ -398,7 +398,7 @@ def register():
     cb2.place(x=0,y=20)
 
 
-    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: verification(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
+    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(name_regist_temp.get(), age_regist_temp.get(), email_regist_temp.get(), password_regist_temp.get(), password_confirmation.get(), user_type.get())) # lambda function to call the function verification
     submit_register_btn.place(x=550,y=350)
 
 
@@ -441,7 +441,7 @@ def login():
 
 
     # Login Button
-    login_button = Button(loginPaned, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: login_session(login_name_temp.get(), login_password_temp.get()))
+    login_button = Button(loginPaned, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: verification(login_name_temp.get(), login_password_temp.get()))
     login_button.place(x=350,y=150)
 
 
@@ -449,10 +449,6 @@ def login():
 # Login Session
 # Function that is going to be executed after the login is successfully done
 # To decide if the menu is going to be created within this function
-def login_session():
-    pass    
-    
-    
     
     
     
