@@ -82,6 +82,10 @@ Done:
 - Statistics Dashboard;
 
 
+- Back-End:
+- Creating account;
+
+
 
 
 - Side Bar
