@@ -403,59 +403,17 @@ def register():
 
 
 
-# Login Window
-# Function to allow user to sign up and access the app
-def login():
+        
     
+def home_menu():
     
-    loginPaned = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
-    loginPaned.place(x=200,y=50)
+    # StringVars
     
-    
-    # Temporary Values
     login_name_temp = StringVar()
     login_password_temp = StringVar()
     
-
     
-    #login_window.focus_force() # Forces the focus to the current window
-    #login_window.grab_set() # Directs all events to the active window
-
-
-    # Login Components
-    # Name Label 
-    name_loginlbl = Label(loginPaned, text="Name", font=("Sans Serif", 20), fg="#000")
-    name_loginlbl.place(x=80,y=50)
-
-    # Name Entry
-    name_login_entry = Entry(loginPaned, textvariable = login_name_temp)
-    name_login_entry.place(x=250,y=60)
-
-    # Password Label
-    password_loginlbl = Label(loginPaned, text="Password", font=("Sans Serif", 20), fg="#000")
-    password_loginlbl.place(x=80,y=100)    
-    
-    # Password Entry
-    password_login_entry = Entry(loginPaned, show="*", textvariable = login_password_temp)
-    password_login_entry.place(x=250,y=110)
-
-
-    # Login Button
-    login_button = Button(loginPaned, text="Login", font=('Sans Serif', 12, "bold"),width=4, command= lambda: verification(login_name_temp.get(), login_password_temp.get()))
-    login_button.place(x=350,y=150)
-
-
-
-# Login Session
-# Function that is going to be executed after the login is successfully done
-# To decide if the menu is going to be created within this function
-    
-    
-    
-    
-def home_menu():
     # Main Window Components
-    
     homePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     homePanel.place(x=200,y=50)
     
@@ -465,7 +423,7 @@ def home_menu():
 
 
     # Name Entry
-    name_Entry = Entry(homePanel) # variable =
+    name_Entry = Entry(homePanel, textvariable= login_name_temp)
     name_Entry.place(x=350,y=110)
 
 
@@ -475,12 +433,12 @@ def home_menu():
 
 
     # Password Entry
-    password_Entry = Entry(homePanel) # variable =
+    password_Entry = Entry(homePanel, show="*", textvariable=login_password_temp)
     password_Entry.place(x=350,y=150)
 
 
     # Login Button
-    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command = login)
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(login_name_temp.get(), login_password_temp.get()))
     login_btn.place(x=350,y=250)
 
 
