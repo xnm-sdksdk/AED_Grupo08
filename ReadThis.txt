@@ -52,6 +52,15 @@ Doing:
 - Complete Sidebar;
 - Finish the UI;
 - Setting the Icons on the sidebar according to the functionalities of the App;
+
+
+
+
+- Back-End:
+- Creating account - Verifications to be done;
+- Login - Verifications to be done;
+- Accessing the users.txt to retrieve the information;
+
 ...........
 ..........
 ..................
