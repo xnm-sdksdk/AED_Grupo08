@@ -250,11 +250,11 @@ def profile_Menu():
 
 
     # Defining Buttons to apply changes
-    applyChanges = Button(profilePanel, text="Apply Changes", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    applyChanges = Button(profilePanel, text="Apply", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
  
  
     # Place buttons
-    applyChanges.place(x=500,y=300)
+    applyChanges.place(x=550,y=330)
 
 
 
@@ -277,6 +277,7 @@ def settings():
     addCategoriesCombo = Combobox(settingsPanel,width=20) # VERY IMPORTANT - NEED TO ADD THE VALUES
     addCategoriesCombo.place(x=300,y=5)
     
+    
     # Button to add categories
     addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
     addCategoriesButton.place(x=500,y=0)
@@ -285,6 +286,19 @@ def settings():
     # Button
     removeCategoriesButton = Button(settingsPanel, text="Remove", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
     removeCategoriesButton.place(x=600,y=0)
+    
+    
+    # Label add notifications
+    addNotifications = Label(settingsPanel, text="add Notifications", font=("Sans Serif", 15, "bold"), fg="#000")
+    addNotifications.place(x=50, y=100)
+    
+    
+    # Entry to notification
+    
+    # Button to add notifications
+    addNotificationsButton = Button(settingsPanel, text="Add", width="5", height="2", font=("Sans Serif", 10, "bold"), fg="#000")
+    addNotificationsButton.place(x=500,y=100)
+    
     
     
 
@@ -560,12 +574,12 @@ settingsImg = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image = homeImg, relief="flat",command = home_menu)
-catalog_button_icon = Button(frame, image=catalogImg, relief="flat", command = catalog)
-notifications_button_icon = Button(frame, image = notificationsImg, relief="flat", command = notifications)
-favorites_button_icon = Button(frame, image=favoritesImg, relief="flat", command = favorites)
-profile_button_icon = Button(frame, image=profileImg, relief="flat", command = profile_Menu)
-settings_button_icon = Button(frame, image=settingsImg, relief="flat", command = settings)
+home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat",command = home_menu)
+catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
+notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
+favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
+profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile_Menu)
+settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
 
 # Placing the buttons of the side bar
 home_button_icon.place(x=20, y=20)
