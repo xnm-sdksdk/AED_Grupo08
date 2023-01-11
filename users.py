@@ -24,6 +24,11 @@ def verification(name_regist_temp, password_regist_temp):
 def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType, panelRegister):
     
     
+    # Variables to check values
+    
+    
+    
+    
     all_profiles = os.listdir()
     print(all_profiles) # For back-end verifications
     
@@ -33,22 +38,35 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
         messagebox.showerror("Register", "All fields are required!")
         return
     
+    
+    
     for name_check in all_profiles:
         # Name verification
         if userName == name_check:
             messagebox.showerror("Register", "An account with that name already exists!")
             return
+        
+        # Age verification
+        #elif userAge != int(userAge):
+         #   messagebox.showerror("Register", "Age must be a number!")
+          #  return
+        
         # Password verification
         elif userPwd != userPwdCheck:
             messagebox.showerror("Register", "Passwords don't match!")
-            return    
+            return
+            
         # Verification to check if email has "@" and "." and if the "@" is before the "."
         elif userMail.find("@") == -1 or userMail.find(".") == -1:
             messagebox.showerror("Register", "Email does not contain @ or .")
-            if userMail.find(".") < userMail.find("@"):
-                messagebox.showerror("Register", "Email is not written correctly.")
-                return
+            return
+        elif userMail.find(".") < userMail.find("@"):
+            messagebox.showerror("Register", "Email is not written correctly.")
+            return
+        
+        # Everything is correct append to the files
         else:
+            emailVerification = True
             fUsers = open(users_file, "a", encoding="utf-8")
             fields = userName + ";" + userAge + ";" + userMail + ";" + userPwd + ";" + userPwdCheck + ";" + userType + "\n"
             fUsers.write(fields)
