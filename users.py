@@ -47,9 +47,9 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             return
         
         # Age verification
-        #elif userAge != int(userAge):
-         #   messagebox.showerror("Register", "Age must be a number!")
-          #  return
+        elif userAge != int:
+            messagebox.showerror("Register", "Age must be a number!")
+            return
         
         # Password verification
         elif userPwd != userPwdCheck:
