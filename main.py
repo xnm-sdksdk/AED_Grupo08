@@ -3,6 +3,7 @@ from tkinter import ttk
 from datetime import datetime
 from tkinter import messagebox
 from tkinter.ttk import Combobox
+from tkcalendar import DateEntry
 from time import strftime
 import os
 
@@ -361,7 +362,7 @@ def register():
     
     
     # Age Entry
-    age_register_entry = Entry(panelRegister, textvariable = userAge)
+    age_register_entry = DateEntry(panelRegister, selectmode="day")
     age_register_entry.place(x=480,y=135)
     
     
