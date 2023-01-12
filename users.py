@@ -16,7 +16,8 @@ def verification(userName, userPwd):
             params = line.split(";")
             if userName == params[0] and userPwd == params[3]:
                 logged = True
-                messagebox.showinfo("Login", "Login successful!")
+                success = "Welcome " + userName + "!"
+                messagebox.showinfo("Login", success)
                 return
         if logged == False:
             messagebox.showerror("Login", "Username or password is incorrect!")
