@@ -67,7 +67,7 @@ def catalog():
 
 
     # Sort DESC Button
-    sortDescTask = Button(panelCatalog, text="Sort DESC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    sortDescTask = Button(panelCatalog, text="Sort DESC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortDesc(todolistBox))
     sortDescTask.place(x=30,y=260)
     
     

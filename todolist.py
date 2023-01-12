@@ -65,8 +65,20 @@ def sortAsc(todolistBox):
 
 
 # Function to sort the tasks in descending order
-def sortDesc():
-    pass
+def sortDesc(todolistBox):
+    # Sort the tasks in descending order
+    count = todolistBox.size()
+    list = []
+    for i in range(count):
+        # append the content from the listbox
+        list.append(todolistBox.get(i))
+    list.sort(reverse=True) # sort alphabetically in reverse order
+    # delete the content of the lbox
+    todolistBox.delete(0, "end")
+    for i in list:
+        todolistBox.insert("end", i)
+    
+    
 
 
 # Function to add to the favorites list
