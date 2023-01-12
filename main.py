@@ -62,7 +62,7 @@ def catalog():
 
 
     # Sort ASC Button
-    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortAsc())
+    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortAsc(todolistBox))
     sortAscTask.place(x=30,y=200)
 
 

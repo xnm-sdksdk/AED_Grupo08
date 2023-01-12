@@ -29,8 +29,17 @@ def countTasks():
 
 
 # Function to sort the tasks in ascending order
-def sortAsc():
-    
+def sortAsc(todolistBox):
+    # Get the number of tasks
+    count = todolistBox.size()
+    list = []
+    for i in range(count):
+        list.append(todolistBox.get(i)) # append the content from the listbox
+    list.sort() # sort alphabetically
+    todolistBox.delete(0, "end") # delete the content of the lbox
+    for i in list: # places the list ordered in the lbox
+        todolistBox.insert("end", i)
+        
 
 
 # Function to sort the tasks in descending order
