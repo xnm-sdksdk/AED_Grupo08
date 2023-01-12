@@ -8,6 +8,8 @@ import os
 
 
 
-def send_Info():
+def send_Info(titleNotification, messageNotification, timerNotification):
     
-    pass
+    if titleNotification == "" or messageNotification == "" or timerNotification == "":
+        messagebox.showerror("Alert", "All fields are required!")
+        return
