@@ -6,8 +6,10 @@ tasks_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_202
 
 
 # Function to add tasks to the list
-def addTask():
-    pass
+def addTaskBox(insertTask, todolistBox):
+    todolistBox.insert("end", insertTask)
+    insertTask.set("")
+    countTasks()
 
 
 # Function to remove the selected task
@@ -16,8 +18,9 @@ def deleteTask():
 
 
 # Function to clean the whole ListBox
-def cleanBox():
-    pass
+def cleanBox(todoListBox):
+    todoListBox.delete(0, "end")
+    countTasks()
 
 
 # Function to increment the number of tasks
@@ -27,7 +30,7 @@ def countTasks():
 
 # Function to sort the tasks in ascending order
 def sortAsc():
-    pass
+    
 
 
 # Function to sort the tasks in descending order

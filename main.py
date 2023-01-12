@@ -37,7 +37,7 @@ def catalog():
 
 
     # List Box to visualize the current info
-    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single")
+    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single", selectbackground="green")
     todolistBox.place(x=250,y=120)
     
 
@@ -52,7 +52,7 @@ def catalog():
     
     
     # Button Add Task
-    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addTask(insertTask.get()))
+    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addTaskBox(insertTask.get(), todolistBox))
     addTask.place(x=30,y=80)
 
 
@@ -62,7 +62,7 @@ def catalog():
 
 
     # Sort ASC Button
-    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortAsc())
     sortAscTask.place(x=30,y=200)
 
 
@@ -72,7 +72,7 @@ def catalog():
     
     
     # Delete All Button
-    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: cleanBox(insertTask.get(), todolistBox))
     deleteAllTask.place(x=30,y=320)
 
 
