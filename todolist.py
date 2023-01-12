@@ -13,8 +13,16 @@ def addTaskBox(insertTask, todolistBox):
 
 
 # Function to remove the selected task
-def deleteTask():
-    pass
+def deleteSelectedTask(todolistBox):
+    position = todolistBox.curselection()
+    
+    # Check if there is a task selected
+    if len(position) > 0:
+        todolistBox.delete(todolistBox.curselection())
+        countTasks()
+    else:
+        messagebox.showerror("Error", "The ListBox has no data selected!")
+        return
 
 
 # Function to clean the whole ListBox

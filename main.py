@@ -57,7 +57,7 @@ def catalog():
 
 
     # Delete Task Button
-    deleteTask = Button(panelCatalog, text="Delete Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    deleteTask = Button(panelCatalog, text="Delete Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: deleteSelectedTask(todolistBox))
     deleteTask.place(x=30,y=140)
 
 
