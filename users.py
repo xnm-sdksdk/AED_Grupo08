@@ -58,7 +58,7 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             
         # Verification to check if email has "@" and "." and if the "@" is before the "."
         elif userMail.find("@") == -1 or userMail.find(".") == -1:
-            messagebox.showerror("Register", "Email does not contain @ or .")
+            messagebox.showerror("Register", "Email does not contain '@' or '.'")
             return
         elif userMail.find(".") < userMail.find("@"):
             messagebox.showerror("Register", "Email is not written correctly.")
