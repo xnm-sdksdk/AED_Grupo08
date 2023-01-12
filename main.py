@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from datetime import datetime
+from datetime import datetime 
 from tkinter import messagebox
 from tkinter.ttk import Combobox
 from time import strftime
@@ -107,7 +107,7 @@ def notifications():
 
 
     # Button to open notifications
-    openNotifications = Button(notificationsPanel, text="Open", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")    
+    openNotifications = Button(notificationsPanel, text="Open", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: send_Info())    
     openNotifications.place(x=350,y=40)
     
     
@@ -251,6 +251,10 @@ def profile_Menu():
 
 def settings():
     
+    # String Var
+    notificationsInfo = StringVar()
+    timer = StringVar()
+    
     # Paned Window Settings
     settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     settingsPanel.place(x=200,y=50)
@@ -268,45 +272,61 @@ def settings():
     
     
     # Button to add categories
-    addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=1, font=("Sans Serif", 10, "bold"), fg="#000000")
     addCategoriesButton.place(x=500,y=0)
     
     
     # Button
-    removeCategoriesButton = Button(settingsPanel, text="Remove", width=5, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    removeCategoriesButton = Button(settingsPanel, text="Remove", width=5, height=1, font=("Sans Serif", 10, "bold"), fg="#000000")
     removeCategoriesButton.place(x=600,y=0)
     
     
     # Label add notifications
-    addNotifications = Label(settingsPanel, text="add Notifications", font=("Sans Serif", 15, "bold"), fg="#000")
-    addNotifications.place(x=50, y=100)
+    addNotifications = Label(settingsPanel, text="Send Notifications", font=("Sans Serif", 15, "bold"), fg="#000")
+    addNotifications.place(x=50, y=70)
     
     
     # Entry to notification
+    addNotificationsEntry = Entry(settingsPanel, textvariable= notificationsInfo)
+    addNotificationsEntry.place(x=300,y=105)
     
     # Button to add notifications
-    addNotificationsButton = Button(settingsPanel, text="Add", width="5", height="2", font=("Sans Serif", 10, "bold"), fg="#000")
+    addNotificationsButton = Button(settingsPanel, text="Add", width="5", height="1", font=("Sans Serif", 10, "bold"), fg="#000", command= lambda: send_Info())
     addNotificationsButton.place(x=500,y=100)
     
+    
+    # Set timer for notifications Label
+    timerlbl = Label(settingsPanel, text="Set Timer", font=("Sans Serif", 15, "bold"), fg="#000")
+    timerlbl.place(x=50, y=150)
+    
+    
+    # Set timer for notifications Entry
+    timerEntry = Entry(settingsPanel, textvariable= timer)
+    timerEntry.place(x=300,y=155)
+    
+    
+    # Set timer for notifications button
+    timerButton = Button(settingsPanel, text="Set", width="5", height="1", font=("Sans Serif", 10, "bold"), fg="#000")
+    timerButton.place(x=500,y=150)
     
     
 
     # Statistics Part
     # Label to show the number os tasks
-    numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    numberTasks.place(x=50,y=200)
+    numberTasks = Label(settingsPanel, text="Number of Tasks: ", font=("Sans Serif", 12, "bold"), fg="#000000")
+    numberTasks.place(x=50,y=240)
     
     # Label to show the number of categories
-    numberCategory = Label(settingsPanel, text="Number of Task By Categories: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    numberCategory.place(x=50,y=250)
+    numberCategory = Label(settingsPanel, text="Number of Task By Categories: ", font=("Sans Serif", 12, "bold"), fg="#000000")
+    numberCategory.place(x=50,y=290)
     
     
     # Label to show the time spent on the app
-    timeSpaceWeek = Label(settingsPanel, text="Activity Last week: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    timeSpaceWeek.place(x=50,y=300)
+    timeSpaceWeek = Label(settingsPanel, text="Activity Last week: ", font=("Sans Serif", 12, "bold"), fg="#000000")
+    timeSpaceWeek.place(x=50,y=340)
     
-    timeSpaceMonth = Label(settingsPanel, text="Activity Last Month: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    timeSpaceMonth.place(x=50,y=350)
+    timeSpaceMonth = Label(settingsPanel, text="Activity Last Month: ", font=("Sans Serif", 12, "bold"), fg="#000000")
+    timeSpaceMonth.place(x=50,y=390)
     
     
     
