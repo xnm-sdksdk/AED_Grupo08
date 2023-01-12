@@ -7,9 +7,15 @@ tasks_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_202
 
 # Function to add tasks to the list
 def addTaskBox(insertTask, todolistBox):
-    todolistBox.insert("end", insertTask)
-    insertTask.set("")
-    countTasks()
+    # Check if the task field is empty if is error message is going to be displayed
+    if insertTask == "":
+        messagebox.showerror("Error", "The task field is empty!")
+        return
+    # If not insert the task in the ListBox
+    else:
+        todolistBox.insert("end", insertTask)
+        insertTask.set("")
+        countTasks()
 
 
 # Function to remove the selected task
