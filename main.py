@@ -3,7 +3,6 @@ from tkinter import ttk
 from datetime import datetime
 from tkinter import messagebox
 from tkinter.ttk import Combobox
-from tkcalendar import DateEntry
 from time import strftime
 import os
 
@@ -348,54 +347,54 @@ def register():
     # Register Components
     # Name Label
     name_registerlbl = Label(panelRegister, text="Name", font= ("Sans Serif", 18), fg="#000")
-    name_registerlbl.place(x=350,y=80)
+    name_registerlbl.place(x=150,y=50)
     
     
     # Name Entry
     name_register_entry = Entry(panelRegister, textvariable = userName)
-    name_register_entry.place(x=480,y=85)
+    name_register_entry.place(x=300,y=55)
     
     
     # Age Label
     age_registerlbl = Label(panelRegister, text="Age", font=("Sans Serif", 18), fg="#000")
-    age_registerlbl.place(x=350, y=130)
+    age_registerlbl.place(x=150, y=90)
     
     
     # Age Entry
-    age_register_entry = DateEntry(panelRegister, selectmode="day")
-    age_register_entry.place(x=480,y=135)
+    age_register_entry = Entry(panelRegister, textvariable = userAge)
+    age_register_entry.place(x=300,y=95)
     
     
     # Email Label
     email_lbl = Label(panelRegister, text="Email", font= ("Sans Serif", 18), fg="#000")
-    email_lbl.place(x=350,y=180)
+    email_lbl.place(x=150,y=130)
     
     
     # Email Entry
     email_entry = Entry(panelRegister, textvariable= userMail)
-    email_entry.place(x= 480,y= 185)
+    email_entry.place(x= 300,y= 135)
     
     
     # Password Label
     password_registerlbl = Label(panelRegister, text="Password", font= ("Sans Serif", 18), fg="#000")
-    password_registerlbl.place(x=350,y=230)
+    password_registerlbl.place(x=150,y=170)
 
 
     # Password Entry
     password_entry = Entry(panelRegister, show="*", textvariable = userPwd)
-    password_entry.place(x=480,y=235)
+    password_entry.place(x=300,y=175)
 
     # Password Confirmation Label
     password_confirmationlbl = Label(panelRegister, text="Confirm", font= ("Sans Serif", 18), fg="#000")
-    password_confirmationlbl.place(x=350,y=280)
+    password_confirmationlbl.place(x=150,y=210)
     
     # Password Confirmation Entry
     password_confirmation_entry = Entry(panelRegister, show="*", textvariable = userPwdCheck)
-    password_confirmation_entry.place(x=480,y=285)
+    password_confirmation_entry.place(x=300,y=215)
 
     # LabelFrame for CheckButtons
     lblFrame_user = LabelFrame(panelRegister, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
-    lblFrame_user.place(x= 350,y=350)
+    lblFrame_user.place(x= 150,y=270)
     
 
     # Type of User Confirmation
@@ -410,8 +409,8 @@ def register():
 
 
     # lambda function to call the function verification
-    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=7, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(userName.get(), userAge.get(), userMail.get(), userPwd.get(), userPwdCheck.get(), userType.get(), panelRegister))
-    submit_register_btn.place(x=550,y=350)
+    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=5, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(userName.get(), userAge.get(), userMail.get(), userPwd.get(), userPwdCheck.get(), userType.get(), panelRegister))
+    submit_register_btn.place(x=380,y=270)
 
 
 
