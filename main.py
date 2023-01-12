@@ -24,7 +24,7 @@ def catalog():
     
     
     # Temporary Vars
-    values = StringVar()
+    insertTask = StringVar()
     
     
     panelCatalog = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -47,12 +47,12 @@ def catalog():
     
 
     # Insert Task Entry
-    insertTask = Entry(panelCatalog, width=30) # textvariable
+    insertTask = Entry(panelCatalog, width=30, textvariable= insertTask)
     insertTask.place(x=250,y=90)
     
     
     # Button Add Task
-    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000") #command= lambda: add_task(insertTask.get())
+    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addTask(insertTask.get()))
     addTask.place(x=30,y=80)
 
 
