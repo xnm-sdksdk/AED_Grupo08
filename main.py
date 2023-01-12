@@ -252,8 +252,9 @@ def profile_Menu():
 def settings():
     
     # String Var
-    notificationsInfo = StringVar()
-    timer = StringVar()
+    titleNotification = StringVar()
+    messageNotification = StringVar()
+    timerNotification = StringVar()
     
     # Paned Window Settings
     settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -282,34 +283,37 @@ def settings():
     
     
     # Label add notifications
-    addNotifications = Label(settingsPanel, text="Send Notifications", font=("Sans Serif", 15, "bold"), fg="#000")
+    addNotifications = Label(settingsPanel, text="Notifications Title", font=("Sans Serif", 15, "bold"), fg="#000")
     addNotifications.place(x=50, y=70)
     
     
-    # Entry to notification
-    addNotificationsEntry = Entry(settingsPanel, textvariable= notificationsInfo)
-    addNotificationsEntry.place(x=300,y=105)
+    # Entry to notification For the Title
+    addNotificationsEntry = Entry(settingsPanel, textvariable= titleNotification)
+    addNotificationsEntry.place(x=300,y=75)
     
-    # Button to add notifications
-    addNotificationsButton = Button(settingsPanel, text="Add", width="5", height="1", font=("Sans Serif", 10, "bold"), fg="#000", command= lambda: send_Info())
-    addNotificationsButton.place(x=500,y=100)
     
+    # Label for notifications label
+    addMessageNotification = Label(settingsPanel, text="Message", font=("Sans Serif", 15, "bold"), fg="#000")
+    addMessageNotification.place(x=50, y=120)
+    
+    addMessageEntry = Entry(settingsPanel, textvariable= messageNotification)
+    addMessageEntry.place(x=300,y=125)
     
     # Set timer for notifications Label
     timerlbl = Label(settingsPanel, text="Set Timer", font=("Sans Serif", 15, "bold"), fg="#000")
-    timerlbl.place(x=50, y=150)
+    timerlbl.place(x=50, y=170)
     
     
     # Set timer for notifications Entry
-    timerEntry = Entry(settingsPanel, textvariable= timer)
-    timerEntry.place(x=300,y=155)
+    timerEntry = Entry(settingsPanel, textvariable= timerNotification)
+    timerEntry.place(x=300,y=175)
+
+
+    # Button to add notifications
+    addNotificationsButton = Button(settingsPanel, text="Add", width="5", height="1", font=("Sans Serif", 10, "bold"), fg="#000", command= lambda: send_Info(titleNotification.get(), messageNotification.get(), timerNotification.get()))
+    addNotificationsButton.place(x=500,y=170)
     
-    
-    # Set timer for notifications button
-    timerButton = Button(settingsPanel, text="Set", width="5", height="1", font=("Sans Serif", 10, "bold"), fg="#000")
-    timerButton.place(x=500,y=150)
-    
-    
+
 
     # Statistics Part
     # Label to show the number os tasks
