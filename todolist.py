@@ -16,13 +16,6 @@ def addTaskBox(insertTask, todolistBox):
         todolistBox.insert("end", insertTask)
         
         # NOT CLEANING THE ENTRY FIELD
-        
-        
-        # Clean the entry field
-        
-        
-        
-        
         insertTask.set("")
         countTasks()
 
