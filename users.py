@@ -7,27 +7,27 @@ import os
 users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
-def verification(name_regist_temp, password_regist_temp):
+def verification(userName, userPwd):
     
-    all_profiles = os.listdir("Files/users.txt")
+    logged = False
     
-    fUsers = open(users_file, "r", encoding="utf-8")
-    usersList = fUsers.readlines()
-    fUsers.close()
-    
-    for name in all_profiles:
-        if name_regist_temp != usersList[0]: 
-            messagebox.showerror("Login", "Invalid Username!")
+    with open("/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            params = line.split(";")
+            if userName == params[0] and userPwd == params[3]:
+                logged = True
+                messagebox.showinfo("Login", "Login successful!")
+                return
+        if logged == False:
+            messagebox.showerror("Login", "Username or password is incorrect!")
             return
+        
+        
+        
+        
 
 # Function to verify if the user is registered in the app
 def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType, panelRegister):
-    
-    
-    # Variables to check values
-    
-    
-    
     
     all_profiles = os.listdir()
     print(all_profiles) # For back-end verifications
@@ -39,7 +39,6 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
         return
     
     
-    
     for name_check in all_profiles:
         # Name verification
         if userName == name_check:
@@ -47,9 +46,9 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             return
         
         # Age verification
-        elif userAge != int():
-            messagebox.showerror("Register", "Age must be a number!")
-            return
+        #elif userAge != int():
+        #    messagebox.showerror("Register", "Age must be a number!")
+        #    return
         
         # Password verification
         elif userPwd != userPwdCheck:
