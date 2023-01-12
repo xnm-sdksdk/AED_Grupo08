@@ -300,7 +300,7 @@ def settings():
     addMessageEntry.place(x=300,y=125)
     
     # Set timer for notifications Label
-    timerlbl = Label(settingsPanel, text="Set Timer", font=("Sans Serif", 15, "bold"), fg="#000")
+    timerlbl = Label(settingsPanel, text="Set Timer (min)", font=("Sans Serif", 15, "bold"), fg="#000")
     timerlbl.place(x=50, y=170)
     
     
