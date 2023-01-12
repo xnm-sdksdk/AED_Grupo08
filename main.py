@@ -197,27 +197,16 @@ def profile_Menu():
     usernameInfo = Label(profilePanel, text="Username: ", font=("Sans Serif", 15, "bold"), fg="#000000")
     usernameInfo.place(x=50,y=0)
     
-
-    # Age Info
-    ageInfo = Label(profilePanel, text="Age: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    ageInfo.place(x=50,y=50)
-    
-    
     # Email Info
     emailInfo = Label(profilePanel, text="Email: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    emailInfo.place(x=50,y=100)
+    emailInfo.place(x=50,y=50)
     
     
     # Password Info
     passwordInfo = Label(profilePanel, text="Password: ", font=("Sans Serif", 15, "bold"), fg="#000000")
-    passwordInfo.place(x=50,y=150)
+    passwordInfo.place(x=50,y=100)
     
     
-    # Display Password CheckButton
-    #pwdDisplay = Checkbutton(profilePanel, text="Display Password", font=("Sans Serif", 15, "bold"), fg="#000000")
-    #pwdDisplay.place(x=50,y=200)
-
-
     # Section to Change the user info
     # Label to change name
     nameChangeLabel = Label(profilePanel, text="Change Name", font=("Sans Serif", 15, "bold"), fg="#000000")
@@ -231,22 +220,22 @@ def profile_Menu():
 
     # Label Change Password
     pwdChangelbl = Label(profilePanel, text="Change Password", font=("Sans Serif", 15, "bold"), fg="#000000")
-    pwdChangelbl.place(x=50,y=300)
+    pwdChangelbl.place(x=50,y=350)
 
 
     # Entry Change Password
     pwdChangeEntry = Entry(profilePanel)
-    pwdChangeEntry.place(x=300,y=305)
+    pwdChangeEntry.place(x=300,y=355)
 
 
     # Label Change Email
     emailChangelbl = Label(profilePanel, text="Change Email", font=("Sans Serif", 15, "bold"), fg="#000000")
-    emailChangelbl.place(x=50,y=350)
+    emailChangelbl.place(x=50,y=300)
     
     
     # Entry Change Email
     emailChangeEntry = Entry(profilePanel)
-    emailChangeEntry.place(x=300,y=355)
+    emailChangeEntry.place(x=300,y=305)
 
 
     # Defining Buttons to apply changes
