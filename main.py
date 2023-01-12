@@ -47,8 +47,8 @@ def catalog():
     
 
     # Insert Task Entry
-    insertTask = Entry(panelCatalog, width=30, textvariable= insertTask)
-    insertTask.place(x=250,y=90)
+    addTask = Entry(panelCatalog, width=30, textvariable= insertTask)
+    addTask.place(x=250,y=90)
     
     
     # Button Add Task

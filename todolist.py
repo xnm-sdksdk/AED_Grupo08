@@ -14,8 +14,19 @@ def addTaskBox(insertTask, todolistBox):
     # If not insert the task in the ListBox
     else:
         todolistBox.insert("end", insertTask)
+        
+        # NOT CLEANING THE ENTRY FIELD
+        
+        
+        # Clean the entry field
+        
+        
+        
+        
         insertTask.set("")
         countTasks()
+
+    insertTask.set("")
 
 
 # Function to remove the selected task
@@ -48,6 +59,7 @@ def cleanBox(todoListBox):
 # Function to increment the number of tasks
 def countTasks():
     pass
+
 
 
 # Function to sort the tasks in ascending order
