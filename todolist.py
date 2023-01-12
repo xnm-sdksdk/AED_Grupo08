@@ -33,8 +33,16 @@ def deleteSelectedTask(todolistBox):
 
 # Function to clean the whole ListBox
 def cleanBox(todoListBox):
-    todoListBox.delete(0, "end")
-    countTasks()
+    # Check if the ListBox is empty if yes error message is going to be displayed
+    
+    # NOT WORKING NEEDS ATTENTION
+    if todoListBox == "":
+        messagebox.showerror("Error", "The ListBox is already empty!")
+        return
+    # Clean the ListBox
+    else:
+        todoListBox.delete(0, "end")
+        countTasks()
 
 
 # Function to increment the number of tasks

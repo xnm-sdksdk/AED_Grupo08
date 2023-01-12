@@ -72,7 +72,7 @@ def catalog():
     
     
     # Delete All Button
-    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: cleanBox(insertTask.get(), todolistBox))
+    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: cleanBox(todolistBox))
     deleteAllTask.place(x=30,y=320)
 
 
