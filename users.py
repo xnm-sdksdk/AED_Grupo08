@@ -7,7 +7,7 @@ import os
 users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
-def verification(userName, userPwd):
+def verification(userName, userPwd, homePanel):
     
     logged = False
     
@@ -19,6 +19,13 @@ def verification(userName, userPwd):
                 success = "Welcome " + userName + "!"
                 messagebox.showinfo("Login", success)
                 return
+            
+                homePanel.place_forget()
+                return
+            
+                
+
+
         if logged == False:
             messagebox.showerror("Login", "Username or password is incorrect!")
             return

@@ -462,7 +462,7 @@ def home_menu():
 
 
     # Login Button
-    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get()))
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get(), homePanel))
     login_btn.place(x=350,y=250)
 
 
@@ -470,7 +470,30 @@ def home_menu():
     register_btn = Button(homePanel, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register)
     register_btn.place(x=200,y=250)
         
-        
+
+
+# Function to load a UI after the users is sucessfully logged in
+def logged_Menu():
+    
+    loggedPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    loggedPanel.place(x=200,y=50)
+    
+    # Place for Image to be displayed
+    
+    
+    # Label for the welcome message on the top 
+    
+    
+    # Button to Log Out of the APP
+    
+     
+    
+    
+    
+    
+    
+    
+    
     
 # Function to display the current time
 def clock():
