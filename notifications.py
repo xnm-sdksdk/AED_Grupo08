@@ -22,4 +22,4 @@ def send_Info(titleNotification, messageNotification, timerNotification):
         time.sleep(min_sec_timer)
         
         # Send the notification to the user
-        notification.notify(title= titleNotification, message= messageNotification, app_name="Notifications", timeout= 10)
+        notification.notify(title= titleNotification, message= messageNotification, app_icon="Images/icon.png",app_name="Notifications", timeout= 10)
