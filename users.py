@@ -51,6 +51,13 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
         #    messagebox.showerror("Register", "Age must be a number!")
         #    return
         
+        
+        # Size of password verification
+        #elif len(userPwd) <= 5:
+         #   messagebox.showerror("Register", "Password must be at least 6 characters long!")
+          #  return
+        
+        
         # Password verification
         elif userPwd != userPwdCheck:
             messagebox.showerror("Register", "Passwords don't match!")
