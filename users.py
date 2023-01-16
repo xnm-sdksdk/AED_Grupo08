@@ -1,6 +1,8 @@
 # Library's: Tkinter UI and messagebox
 from tkinter import *
 from tkinter import messagebox
+import datetime
+from time import strftime
 import os
 
 # path to users.txt file
@@ -81,8 +83,10 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
         # Everything is correct append to the files
         else:
             emailVerification = True
+            time = datetime.datetime.now()
+            date = time.strftime("%d/%m/%Y %H:%M:%S")
             fUsers = open(users_file, "a", encoding="utf-8")
-            fields = userName + ";" + userAge + ";" + userMail + ";" + userPwd + ";" + userPwdCheck + ";" + userType + "\n"
+            fields = userName + ";" + userAge + ";" + userMail + ";" + userPwd + ";" + userPwdCheck + ";" + userType + ";" + date + "\n"
             fUsers.write(fields)
             fUsers.close()
             messagebox.showinfo("Register", "Account has been created successfully!")
