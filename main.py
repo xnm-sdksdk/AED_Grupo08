@@ -188,22 +188,39 @@ def favorites():
 # FUNCTION PROFILE MENU 
 def profile_Menu():
     
+    global users_file
+    users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
+
+    file = open(users_file, 'r', encoding='utf-8')
+    line = file.readlines()
+    users_file = line[0].split(";")
+    file.close()
+    
+    """
+    [0] - Name
+    [1] - Age
+    [2] - Email
+    [3] - Password
+    [4] - Password Confirmation
+    [5] - Type of User
+    """
+    
     # Paned Window Profile
     profilePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     profilePanel.place(x=200,y=50)
     
     
     # Username Info
-    usernameInfo = Label(profilePanel, text="Username: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    usernameInfo = Label(profilePanel, text="Username: {0}".format(users_file[0]), font=("Sans Serif", 15, "bold"), fg="#000000")
     usernameInfo.place(x=50,y=0)
     
     # Email Info
-    emailInfo = Label(profilePanel, text="Email: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    emailInfo = Label(profilePanel, text="Email: {0}".format(users_file[2]), font=("Sans Serif", 15, "bold"), fg="#000000")
     emailInfo.place(x=50,y=50)
     
     
     # Password Info
-    passwordInfo = Label(profilePanel, text="Password: ", font=("Sans Serif", 15, "bold"), fg="#000000")
+    passwordInfo = Label(profilePanel, text="Password: {0}".format(users_file[3]), font=("Sans Serif", 15, "bold"), fg="#000000")
     passwordInfo.place(x=50,y=100)
     
     
