@@ -9,7 +9,7 @@ import os
 users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
 # Function to verify all inputs inserted by the user in the register function 
-def verification(userName, userPwd, homePanel):
+def verification(userName, userPwd, homePanel, logged_Menu):
     
     logged = False
     
@@ -20,10 +20,10 @@ def verification(userName, userPwd, homePanel):
                 logged = True
                 success = "Welcome " + userName + "!"
                 messagebox.showinfo("Login", success)
-                return
-            
                 homePanel.place_forget()
+                logged_Menu()
                 return
+
             
                 
 
@@ -93,4 +93,6 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             panelRegister.place_forget()
             return
             
-            
+
+def logOut():
+    pass
