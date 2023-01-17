@@ -172,7 +172,7 @@ def favorites():
 
 
     # Add a comment Button
-    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get()))
+    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), commentlbox))
     commentBtn.place(x=600, y=140)
 
 
