@@ -523,8 +523,8 @@ def logged_Menu():
     welcomelbl.place(x=80,y=0)
     
     # Button to Log Out of the APP
-    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 16, "bold"), width=6, command= lambda: logOut())
-    logout.place(x=350,y=400)
+    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut())
+    logout.place(x=650,y=350)
      
     
     
