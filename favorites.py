@@ -11,14 +11,20 @@ comments_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_
 
 
 
-def insertComment(userName, content):
+def insertComment(userName, content, commentlbox):
     
-    # Register the comment by time and date
-    time = datetime.datetime.now()
-    date = time.strftime("%d/%m/%Y %H:%M:%S")
-    
-    # open the file and write the comment
-    fcomments = open(comments_file, "a", encoding="utf-8")
-    fields = userName + ";" + content + ";" + date + "\n"
-    fcomments.write(fields)
-    fcomments.close()
+    if content == "":
+        messagebox.showerror("Error", "The comment field is empty!")
+        return
+    else:
+        # Register the comment by time and date
+        time = datetime.datetime.now()
+        date = time.strftime("%d/%m/%Y %H:%M:%S")
+        
+        # open the file and write the comment
+        fcomments = open(comments_file, "a", encoding="utf-8")
+        fields = userName + ";" + content + ";" + date + "\n"
+        fcomments.write(fields)
+        fcomments.close()
+        
+        commentlbox.insert("end", userName + ":   " + content + " .    " + date + "\n")
