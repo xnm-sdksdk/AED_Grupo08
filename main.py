@@ -136,6 +136,7 @@ def notifications():
 # FUNCTION FAVORITES MENU
 def favorites():
     
+    
     # Paned Window Favorites
     favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     favoritesPanel.place(x=200,y=50)
@@ -269,9 +270,14 @@ def profile_Menu():
 def settings():
     
     # String Var
+    # Notifications
     titleNotification = StringVar()
     messageNotification = StringVar()
     timerNotification = StringVar()
+    
+    # Categories
+    categories = StringVar()
+    
     
     # Paned Window Settings
     settingsPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -285,12 +291,13 @@ def settings():
     
     
     # ComboBox to add categories
-    addCategoriesCombo = Combobox(settingsPanel,width=20) # VERY IMPORTANT - NEED TO ADD THE VALUES
+    addCategoriesCombo = Entry(settingsPanel, textvariable = categories)
+    # VERY IMPORTANT - NEED TO ADD THE VALUES
     addCategoriesCombo.place(x=300,y=5)
     
     
     # Button to add categories
-    addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=1, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addCategoriesButton = Button(settingsPanel, text="Add", width=5, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: settingsCategories(categories.get())) 
     addCategoriesButton.place(x=500,y=0)
     
     
