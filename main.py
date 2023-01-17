@@ -450,6 +450,7 @@ def register():
 def home_menu():
     
     global userName
+    global userPwd
     
     # StringVars
     userName = StringVar()
@@ -523,7 +524,7 @@ def logged_Menu():
     welcomelbl.place(x=80,y=0)
     
     # Button to Log Out of the APP
-    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut())
+    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut(userName.get(), userPwd.get(), loggedPanel))
     logout.place(x=650,y=350)
      
     
