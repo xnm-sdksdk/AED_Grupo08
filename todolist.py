@@ -18,9 +18,7 @@ def addTaskBox(insertTask, todolistBox):
         # NOT CLEANING THE ENTRY FIELD
         insertTask.set("")
         countTasks()
-
-    insertTask.set("")
-
+        return
 
 # Function to remove the selected task
 def deleteSelectedTask(todolistBox):
