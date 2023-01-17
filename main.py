@@ -123,16 +123,6 @@ def notifications():
 
 
 
-
-
-
-
-
-
-
-
-
-
 # FUNCTION FAVORITES MENU
 def favorites():
     
@@ -223,6 +213,10 @@ def profile_Menu():
     # Password Info
     passwordInfo = Label(profilePanel, text="Password: {0}".format(users_file[3]), font=("Sans Serif", 15, "bold"), fg="#000000")
     passwordInfo.place(x=50,y=100)
+    
+    check = Checkbutton(profilePanel, text="Show Password", font=("Sans Serif", 15, "bold"), fg="#000000")
+    check.place(x=50,y=150)
+    
     
     
     # Section to Change the user info
@@ -455,8 +449,9 @@ def register():
     
 def home_menu():
     
-    # StringVars
+    global userName
     
+    # StringVars
     userName = StringVar()
     userPwd = StringVar()
     
@@ -486,7 +481,7 @@ def home_menu():
 
 
     # Login Button
-    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get(), homePanel))
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get(), homePanel, logged_Menu))
     login_btn.place(x=350,y=250)
 
 
@@ -496,20 +491,40 @@ def home_menu():
         
 
 
-# Function to load a UI after the users is sucessfully logged in
+
+
+# Function to load a UI after the users is successfully logged in
 def logged_Menu():
+    
+    # Read the File
+    users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
+
+    file = open(users_file, 'r', encoding='utf-8')
+    line = file.readlines()
+    users_file = line[0].split(";")
+    file.close()
+    
     
     loggedPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
     loggedPanel.place(x=200,y=50)
     
-    # Place for Image to be displayed
     
+    # Canvas for the image
+    homeCanvas = Canvas(loggedPanel, width= 600, height=300)
+    homeCanvas.place(x=100,y=100)
+    
+    
+    # Place for Image to be displayed
+    calendar = PhotoImage("Images/calendar.png")
+    homeCanvas.create_image(0,0, image=calendar)
     
     # Label for the welcome message on the top 
-    
+    welcomelbl = Label(loggedPanel ,text="Welcome to your To Do List App {0}".format(users_file[0]), font=("Sans Serif", 20), fg="#000")
+    welcomelbl.place(x=80,y=0)
     
     # Button to Log Out of the APP
-    
+    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 16, "bold"), width=6, command= lambda: logOut())
+    logout.place(x=350,y=400)
      
     
     
