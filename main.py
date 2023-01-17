@@ -126,6 +126,9 @@ def notifications():
 # FUNCTION FAVORITES MENU
 def favorites():
     
+    # String Var
+    content = StringVar() # For the comments data
+    
     
     # Paned Window Favorites
     favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -164,12 +167,12 @@ def favorites():
     
     
     # Add a comment Entry
-    commentEntry = Entry(favoritesPanel, width=30)
+    commentEntry = Entry(favoritesPanel, width=30, textvariable = content)
     commentEntry.place(x=300,y=150)
 
 
     # Add a comment Button
-    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
+    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get()))
     commentBtn.place(x=600, y=140)
 
 
