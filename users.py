@@ -94,5 +94,5 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             return
             
 
-def logOut():
+def logOut(userName, userPass, loggedPanel):
     pass
