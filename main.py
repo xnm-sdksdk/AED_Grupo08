@@ -524,7 +524,7 @@ def logged_Menu():
     welcomelbl.place(x=80,y=0)
     
     # Button to Log Out of the APP
-    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut(userName.get(), userPwd.get(), loggedPanel))
+    logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut(userName.get(), userPwd.get(), logged_Menu, home_menu))
     logout.place(x=650,y=350)
      
     
@@ -650,7 +650,7 @@ settingsImg = PhotoImage(file = "Images/settings.png")
 
 
 # Side Bar Buttons
-home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat",command = home_menu)
+home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat",command = lambda: refresh(home_menu, logged_Menu))
 catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
 notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
 favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)

@@ -1,6 +1,7 @@
 # Library's: Tkinter UI and messagebox
 from tkinter import *
 from tkinter import messagebox
+from tkinter import ttk
 import datetime
 from time import strftime
 import os
@@ -10,6 +11,7 @@ users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_202
 
 # Function to verify all inputs inserted by the user in the register function 
 def verification(userName, userPwd, homePanel, logged_Menu):
+    global logged
     
     logged = False
     
@@ -94,5 +96,24 @@ def authentication(userName, userAge, userMail, userPwd, userPwdCheck, userType,
             return
             
 
-def logOut(userName, userPass, loggedPanel):
-    pass
+def logOut(userName, userPass, logged_Menu, home_menu):
+    # function to log out the user and return to the home menu
+    global logged
+    logged = False
+    logged_Menu.place_forget()
+    refresh(home_menu, logged_Menu)
+    return
+
+def refresh(home_menu, logged_Menu):
+    
+    # if the users is logged show the logged menu otherwise show the home menu
+    if logged == True:
+        home_menu.place_forget()
+        logged_Menu()
+        return
+    else:
+        logged_Menu.place_forget()
+        home_menu()
+        return
+        
+        
