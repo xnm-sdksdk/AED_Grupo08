@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-usersFile = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
+usersFile = ".\\Files\\users.txt"
 
 
 
