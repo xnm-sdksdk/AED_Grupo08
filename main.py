@@ -176,7 +176,7 @@ def favorites():
     
     # String Var
     content = StringVar() # For the comments data
-    
+    activity = StringVar() # For the activity data
     
     # Paned Window Favorites
     favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -198,7 +198,7 @@ def favorites():
 
 
     # Activity Listbox
-    activitylbox = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20)
+    activitylbox = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20, textvariable= activity)
     activitylbox.place(x=300,y=75)
 
 
@@ -220,7 +220,7 @@ def favorites():
 
 
     # Add a comment Button
-    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), commentlbox))
+    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), activity.get(), commentlbox))
     commentBtn.place(x=600, y=140)
 
 
@@ -232,6 +232,7 @@ def profile_Menu():
     
     global users_file
     users_file = ".\\Files\\users.txt"
+    # users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
     file = open(users_file, 'r', encoding='utf-8')
     line = file.readlines()
@@ -535,6 +536,7 @@ def logged_Menu():
     
     # Read the File
     users_file = ".\\Files\\users.txt"
+    # users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
 
     file = open(users_file, 'r', encoding='utf-8')
     line = file.readlines()

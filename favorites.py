@@ -6,12 +6,16 @@ import datetime
 import os
 
 favorites_file = ".\\Files\\favorites.txt"
+# favorites_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/favorites.txt"
 
 comments_file = ".\\Files\\comments.txt"
+# comments_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/comments.txt"
+
+activity_file = ".\\Files\\activity.txt"
+# activity_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/activity.txt"
 
 
-
-def insertComment(userName, content, commentlbox):
+def insertComment(userName, content, activity, commentlbox):
     
     if content == "":
         messagebox.showerror("Error", "The comment field is empty!")
@@ -27,4 +31,5 @@ def insertComment(userName, content, commentlbox):
         fcomments.write(fields)
         fcomments.close()
         
-        commentlbox.insert("end", userName + ":   " + content + " .    " + date + "\n")
+        # Name of the user, activity selected,  the content  of the comment and date of the comment.
+        commentlbox.insert("end", userName + " said in:  " + activity +  "   Comment: " + content + ".    " + date)
