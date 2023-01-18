@@ -128,7 +128,7 @@ def favorites():
     
     # String Var
     content = StringVar() # For the comments data
-    
+    activity = StringVar() # For the activity data
     
     # Paned Window Favorites
     favoritesPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
@@ -150,8 +150,9 @@ def favorites():
 
 
     # Activity Listbox
-    activitylbox = Combobox(favoritesPanel ,width=20)
+    activitylbox = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20, textvariable= activity)
     activitylbox.place(x=300,y=75)
+
 
 
     # Comment on a favorite
@@ -171,7 +172,7 @@ def favorites():
 
 
     # Add a comment Button
-    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), commentlbox))
+    commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), activity.get(), commentlbox))
     commentBtn.place(x=600, y=140)
 
 
