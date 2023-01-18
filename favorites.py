@@ -6,10 +6,14 @@ import datetime
 import os
 
 favorites_file = ".\\Files\\favorites.txt"
+# favorites_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/favorites.txt"
 
 comments_file = ".\\Files\\comments.txt"
+# comments_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/comments.txt"
 
 activity_file = ".\\Files\\activity.txt"
+# activity_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/activity.txt"
+
 
 def insertComment(userName, content, activity, commentlbox):
     
