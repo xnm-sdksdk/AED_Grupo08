@@ -9,21 +9,11 @@
 
 To Do:
 
-- Create Menu window;
-- Create Task menu;
-- Create settings menu;
-- Admin vs user authentication
-
-
-Side Bar:
-- Back End Side;
-
 Admin:
 
 - Manage users; - Settings;
 - Manage notifications; - Notifications;
 - Configure notifications; - Notifications;
-
 
 User:
 
@@ -33,6 +23,31 @@ User:
 - Comment, Like, Punctuate; - Catalog;
 - Manage favorites; - Favorites;
 - Receive notifications; - Notifications;
+
+
+
+- UI:
+- Side Bar icons border;
+- Review colors, font, text sizes;
+- Fix pop up window notifications;
+-
+
+
+
+- Back-end:
+- Admin User Integration;
+- Categories file to upload info to display;
+- Add favorites to a list;
+- Filter Data;
+- Integrate txt file in categories;
+- Attribute notifications to a specific user;
+- Add a comment in a specific activity;
+- See favorites and insert them;
+- Button in profile to display password;
+- Modify the txt profile file;
+- Add categories;
+- Build Statistics dashboard;
+- Like, punctuate;
 
 ........
 ........
@@ -45,27 +60,11 @@ User:
 Doing:
 
 
-
-- Main Window;
-- Back-end register and login;
-- Integration of windows;
-- Complete Sidebar;
-- Finish the UI;
-- Setting the Icons on the sidebar according to the functionalities of the App;
-
-
-
-- UI PAGES:
-- Home;
-- Catalog;
-- Settings;
-- Notifications;
+- UI:
 
 
 - Back-End:
-- Creating account - Verifications to be done;
-- Login - Verifications to be done;
-- Accessing the users.txt to retrieve the information;
+
 
 ...........
 ..........
@@ -80,35 +79,24 @@ Doing:
 Done:
 
 
-- UI Pages:
 
-- Profile;
-- Clock;
-
-
-- UI Finished:
+- UI:
 
 - Create and authenticate account;
 - Manage categories;
 - Change State;
 - Statistics Dashboard;
-
+- Switch between home and log in;
 
 - Back-End:
 - Creating account;
-
-
-
-
-- Side Bar
-- MERGING THE UI ELEMENTS FROM WINDOWS TO PANED WINDOWS;
-
-
-
-
-- Register Verifications:
-
-- Blank fields;
+- Verifying account;
+- Login;
+- Verifying login;
+- Comments thread;
+- Receive notifications;
+- Order in to do list;
+- Data concatenated in profile;
 
 
 
