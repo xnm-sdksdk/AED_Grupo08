@@ -17,7 +17,7 @@ def verification(userName, userPwd, homePanel, logged_Menu):
     
     logged = False
     
-    with open("/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt", "r", encoding="utf-8") as file:
+    with open(users_file, "r", encoding="utf-8") as file:
         for line in file:
             params = line.split(";")
             if userName == params[0] and userPwd == params[3]:
@@ -27,10 +27,6 @@ def verification(userName, userPwd, homePanel, logged_Menu):
                 homePanel.place_forget()
                 logged_Menu()
                 return
-
-            
-                
-
 
         if logged == False:
             messagebox.showerror("Login", "Username or password is incorrect!")

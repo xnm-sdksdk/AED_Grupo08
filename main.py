@@ -1,11 +1,10 @@
 from tkinter import *
 from tkinter import ttk
-from datetime import datetime 
 from tkinter import messagebox
 from tkinter.ttk import Combobox
+from datetime import datetime as dt
 from time import strftime
 import os
-
 
 # Import the other files
 from users import *
@@ -15,82 +14,131 @@ from favorites import *
 from profileSettings import *
 from settings import *
 
-
-
 def catalog():
-    
     # Global Vars
     global values
-    
     
     # Temporary Vars
     insertTask = StringVar()
     
-    
-    panelCatalog = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
-    panelCatalog.place(x=200,y=50)
-
+    panelCatalog = PanedWindow(main, relief="sunken", borderwidth=2 , width= 600, height=450)
+    panelCatalog.place(x=220,y=20)
 
     # Entry Label - To Do List
     cataloglbl = Label(panelCatalog, text="To Do List", font=("Sans Serif", 20, "bold"), fg="#000")
-    cataloglbl.place(x=0, y=0)
-
-
-    # List Box to visualize the current info
-    todolistBox = Listbox(panelCatalog, width=50, height=15, selectmode= "single", selectbackground="green")
-    todolistBox.place(x=250,y=120)
+    cataloglbl.place(x=30, y=25)
     
-
-    # Number os Tasks Label
-    numberTasks= Label(panelCatalog, text="Number of Tasks: ", font=("Sans Serif", 10, "bold"), fg="#000000")
-    numberTasks.place(x=250,y=50)
-    
-
+    # Entry Label - To Do List
+    addTasksLbl = Label(panelCatalog, text="Add some tasks here", font=("Sans Serif", 14), fg="#000")
+    addTasksLbl.place(x=30, y=80)
     # Insert Task Entry
-    addTask = Entry(panelCatalog, width=30, textvariable= insertTask)
-    addTask.place(x=250,y=90)
-    
-    
+    addTask = Entry(panelCatalog, width=20, textvariable= insertTask)
+    addTask.place(x=30, y=115)
     # Button Add Task
-    addTask = Button(panelCatalog, text="Add Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addTaskBox(insertTask.get(), todolistBox))
-    addTask.place(x=30,y=80)
-
+    addTask = Button(panelCatalog, text="Add", width=4, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addTaskBox(insertTask.get(), todolistBox))
+    addTask.place(x=168, y=110)
 
     # Delete Task Button
-    deleteTask = Button(panelCatalog, text="Delete Task", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: deleteSelectedTask(todolistBox))
-    deleteTask.place(x=30,y=140)
-
+    deleteTask = Button(panelCatalog, text="Delete Task", width=16, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: deleteSelectedTask(todolistBox))
+    deleteTask.place(x=45,y=190)
 
     # Sort ASC Button
-    sortAscTask = Button(panelCatalog, text="Sort ASC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortAsc(todolistBox))
-    sortAscTask.place(x=30,y=200)
-
+    sortAscTask = Button(panelCatalog, text="Sort ASC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortAsc(todolistBox))
+    sortAscTask.place(x=45,y=235)
 
     # Sort DESC Button
-    sortDescTask = Button(panelCatalog, text="Sort DESC", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortDesc(todolistBox))
-    sortDescTask.place(x=30,y=260)
-    
+    sortDescTask = Button(panelCatalog, text="Sort DESC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: sortDesc(todolistBox))
+    sortDescTask.place(x=45,y=280)
     
     # Delete All Button
-    deleteAllTask = Button(panelCatalog, text="Delete All", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: cleanBox(todolistBox))
-    deleteAllTask.place(x=30,y=320)
-
+    deleteAllTask = Button(panelCatalog, text="Delete All", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: cleanBox(todolistBox))
+    deleteAllTask.place(x=45,y=325)
 
     # Add to favorites Button
-    addfavoritesButton = Button(panelCatalog, text="Add to\n Favorites", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    addfavoritesButton.place(x=30,y=380)
+    addfavoritesButton = Button(panelCatalog, text="Add to Favorites", width=16, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addfavoritesButton.place(x=45,y=370)
     
-
+    # Categoria
+    categoria = Label(panelCatalog, text="Category", font=("Sans Serif", 14), fg="#000000")
+    categoria.place(x=300, y=80)
+    
+    # Select Categoria
+    categorias = ".\\Files\\categorias.txt"
+    categoriasList = []
+    f = open(categorias, 'r', encoding='utf-8')
+    for line in f:
+        categoriasList.append(line)
+    f.close()
+    selectCategoria = Combobox(panelCatalog, values=categoriasList, width=20)
+    selectCategoria.place(x=280, y=115)
+    
     # Filter Button
-    filterTask = Button(panelCatalog, text="Filter", width=8, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
-    filterTask.place(x=500,y=5)
+    filterTask = Button(panelCatalog, text="Filter", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000")
+    filterTask.place(x=450, y=80)
+    
+    # TVTodo
+    treeToDo = ttk.Treeview(panelCatalog, height = 10, selectmode = "browse", columns = ("ToDo"), show = "headings")
+    treeToDo.column("ToDo", width = 120, anchor = "w")
+    treeToDo.heading("ToDo", text = "To Do")
+    treeToDo.place(x=210, y=170)
+    
+    # TVDoing
+    treeDoing = ttk.Treeview(panelCatalog, height = 10, selectmode = "browse", columns = ("Doing"), show = "headings")
+    treeDoing.column("Doing", width = 120, anchor = "w")
+    treeDoing.heading("Doing", text = "Doing")
+    treeDoing.place(x=330, y=170)
+    # TVDone
+    treeDone = ttk.Treeview(panelCatalog, height = 10, selectmode = "browse", columns = ("Done"), show = "headings")
+    treeDone.column("Done", width = 120, anchor = "w")
+    treeDone.heading("Done", text = "Done")
+    treeDone.place(x=450, y=170)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 
-    # Section To filter the state of the tasks
-    values = ["To Do", "Doing", "Done"]
-    selectState = Combobox(panelCatalog, values=values, width=20)
-    selectState.place(x=250,y=10)
+
+    
+
+    
+    
+
+   
+    
+    
+
+    
     
     
 
@@ -355,16 +403,15 @@ def settings():
     timeSpaceMonth.place(x=50,y=390)
     
     
-    
-    
+
     
 
 # Register Window
 # Function to allow user to register in the app
 def register():
     
-    panelRegister = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500) 
-    panelRegister.place(x=200,y=50)
+    panelRegister = PanedWindow(main, relief="raised", width=500, height=300) 
+    panelRegister.place(x=300,y=100)
    
     # Temporary Variables - to retrieve them later - keyword to execute that task: .get()
     userName = StringVar()
@@ -376,81 +423,58 @@ def register():
     # Set User by Default as Type of  
     userType.set('user')
     
-    
-
-
     # Register Components
     # Name Label
-    name_registerlbl = Label(panelRegister, text="Name", font= ("Sans Serif", 18), fg="#000")
-    name_registerlbl.place(x=150,y=50)
-    
-    
+    name_registerlbl = Label(panelRegister, text="Name", font= ("Sans Serif", 14), fg="#000")
+    name_registerlbl.place(x=80,y=20)
     # Name Entry
-    name_register_entry = Entry(panelRegister, textvariable = userName)
-    name_register_entry.place(x=300,y=55)
-    
+    name_register_entry = Entry(panelRegister, textvariable=userName)
+    name_register_entry.place(x=80,y=50)
     
     # Age Label
-    age_registerlbl = Label(panelRegister, text="Age", font=("Sans Serif", 18), fg="#000")
-    age_registerlbl.place(x=150, y=90)
-    
-    
+    age_registerlbl = Label(panelRegister, text="Birth date", font=("Sans Serif", 14), fg="#000")
+    age_registerlbl.place(x=280, y=20)
     # Age Entry
-    age_register_entry = Entry(panelRegister, textvariable = userAge)
-    age_register_entry.place(x=300,y=95)
-    
+    age_register_entry = Entry(panelRegister, textvariable=userAge)
+    age_register_entry.place(x=280, y=50)
     
     # Email Label
-    email_lbl = Label(panelRegister, text="Email", font= ("Sans Serif", 18), fg="#000")
-    email_lbl.place(x=150,y=130)
-    
-    
+    email_lbl = Label(panelRegister, text="Email", font= ("Sans Serif", 14), fg="#000")
+    email_lbl.place(x=80, y=85)
     # Email Entry
-    email_entry = Entry(panelRegister, textvariable= userMail)
-    email_entry.place(x= 300,y= 135)
-    
+    email_entry = Entry(panelRegister, textvariable= userMail, width=54)
+    email_entry.place(x=80, y=115)
     
     # Password Label
-    password_registerlbl = Label(panelRegister, text="Password", font= ("Sans Serif", 18), fg="#000")
-    password_registerlbl.place(x=150,y=170)
-
-
+    password_registerlbl = Label(panelRegister, text="Password", font= ("Sans Serif", 14), fg="#000")
+    password_registerlbl.place(x=80,y=150)
     # Password Entry
     password_entry = Entry(panelRegister, show="*", textvariable = userPwd)
-    password_entry.place(x=300,y=175)
+    password_entry.place(x=80,y=180)
 
     # Password Confirmation Label
-    password_confirmationlbl = Label(panelRegister, text="Confirm", font= ("Sans Serif", 18), fg="#000")
-    password_confirmationlbl.place(x=150,y=210)
-    
+    password_confirmationlbl = Label(panelRegister, text="Confirm", font= ("Sans Serif", 14), fg="#000")
+    password_confirmationlbl.place(x=280,y=150)
     # Password Confirmation Entry
     password_confirmation_entry = Entry(panelRegister, show="*", textvariable = userPwdCheck)
-    password_confirmation_entry.place(x=300,y=215)
+    password_confirmation_entry.place(x=280,y=180)
 
     # LabelFrame for CheckButtons
-    lblFrame_user = LabelFrame(panelRegister, text="Type of User:",  width=120, height=70, relief="sunken", bd="3", fg="black")
-    lblFrame_user.place(x= 150,y=270)
+    lblFrame_user = LabelFrame(panelRegister, text="Type of User",  width=160, height=50, relief="sunken", bd="3", fg="black")
+    lblFrame_user.place(x=80, y=220)
     
-
     # Type of User Confirmation
     # User
     cb1 = Radiobutton(lblFrame_user, text="User", variable= userType, value= "user")
-    cb1.place(x=0,y=0) 
-    
-    
+    cb1.place(x=15, y=3) 
     # Admin
     cb2 = Radiobutton(lblFrame_user, text="Admin", variable= userType, value= "admin")
-    cb2.place(x=0,y=20)
-
+    cb2.place(x=80,y=3)
 
     # lambda function to call the function verification
-    submit_register_btn = Button(panelRegister, text="Submit", state="active", width=5, height=3, font=("Sans Serif", 12, "bold"), fg="#000000", command= lambda: authentication(userName.get(), userAge.get(), userMail.get(), userPwd.get(), userPwdCheck.get(), userType.get(), panelRegister))
-    submit_register_btn.place(x=380,y=270)
+    submit_register_btn = Button(panelRegister, text="Register", state="active", width=10, font=("Sans Serif", 16, "bold"), fg="#000000", command= lambda: authentication(userName.get(), userAge.get(), userMail.get(), userPwd.get(), userPwdCheck.get(), userType.get(), panelRegister))
+    submit_register_btn.place(x=270,y=225)
 
-
-
-        
-    
 def home_menu():
     
     global userName
@@ -460,44 +484,53 @@ def home_menu():
     userName = StringVar()
     userPwd = StringVar()
     
-    
     # Main Window Components
-    homePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
-    homePanel.place(x=200,y=50)
+    homePanel = PanedWindow(main, relief="raised", width=500, height=300)
+    homePanel.place(x=300,y=100)
     
     # Name Label
-    namelbl = Label(homePanel, text="Name", font= ("Sans Serif", 20), fg="#000")
-    namelbl.place(x=150,y=100)
-
-
+    namelbl = Label(homePanel, text="Name", font= ("Sans Serif", 16), fg="#000")
+    namelbl.place(x=140,y=50)
     # Name Entry
-    name_Entry = Entry(homePanel, textvariable= userName)
-    name_Entry.place(x=350,y=110)
-
+    name_Entry = Entry(homePanel, textvariable=userName)
+    name_Entry.place(x=260,y=55)
 
     # Password Label
-    passwordlbl = Label(homePanel, text="Password", font= ("Sans Serif", 20), fg="#000")
-    passwordlbl.place(x=150,y=150)
-
-
+    passwordlbl = Label(homePanel, text="Password", font= ("Sans Serif", 16), fg="#000")
+    passwordlbl.place(x=140,y=100)
     # Password Entry
-    password_Entry = Entry(homePanel, show="*", textvariable= userPwd)
-    password_Entry.place(x=350,y=150)
-
+    password_Entry = Entry(homePanel, show="*", textvariable=userPwd)
+    password_Entry.place(x=260,y=105)
 
     # Login Button
-    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"),width=6, command= lambda: verification(userName.get(), userPwd.get(), homePanel, logged_Menu))
-    login_btn.place(x=350,y=250)
-
+    login_btn = Button(homePanel, text = 'Login', font=('Sans Serif', 16, "bold"), width=10, command= lambda: verification(userName.get(), userPwd.get(), homePanel, logged_Menu))
+    login_btn.place(x=200,y=170)
 
     # Register Button
-    register_btn = Button(homePanel, text = 'Register', font = ('Sans Serif', 16, "bold"),width = 6, command = register)
-    register_btn.place(x=200,y=250)
+    register_btn = Button(homePanel, text = 'Register', font = ('Sans Serif', 12),width=8, command = register)
+    register_btn.place(x=220,y=240)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         
-
-
-
-
 # Function to load a UI after the users is successfully logged in
 def logged_Menu():
     
@@ -510,15 +543,12 @@ def logged_Menu():
     users_file = line[0].split(";")
     file.close()
     
-    
-    loggedPanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
+    loggedPanel = PanedWindow(main, relief="raised", width= 800, height=500)
     loggedPanel.place(x=200,y=50)
-    
     
     # Canvas for the image
     homeCanvas = Canvas(loggedPanel, width= 600, height=300)
     homeCanvas.place(x=100,y=100)
-    
     
     # Place for Image to be displayed
     calendar = PhotoImage("Images/calendar.png")
@@ -532,21 +562,13 @@ def logged_Menu():
     logout = Button(loggedPanel, text="Log Out", font=("Sans Serif", 12, "bold"), width=6, command= lambda: logOut(userName.get(), userPwd.get(), logged_Menu, home_menu))
     logout.place(x=650,y=350)
      
-    
-    
-    
-    
-    
-    
-    
-    
+     
 # Function to display the current time
 def clock():
     
     # Label for the clock
     clocklbl = Label(main, font=("Sans Serif", 15), fg="#000")
-    clocklbl.place(x=850,y=5)
-    
+    clocklbl.place(x=880,y=20)
     
     # Getting the current time
     time = strftime("%H:%M:%S")
@@ -557,7 +579,6 @@ def clock():
     # After 500 miliseconds the clock function is going to be called again
     clocklbl.after(500, clock)
     
-
 
 # Main Window Initialization 
 main = Tk()
@@ -580,16 +601,16 @@ main.title("To Do List") # Title of the app
 main.resizable(0,0) # Disable resizing of the app
 main.configure() # Background Configurations - COLOR TO BE DECIDE LATER ################
 
-
 # Side Bar Settings
 # For minimum and maximum size of the side bar
 side_min = 100
 side_max = 200
 
-expansion = side_min # To expand the side bar
+# To expand the side bar
+expansion = side_min 
 
-expanded = False # To check if the side bar is expanded or not
-
+# To check if the side bar is expanded or not
+expanded = False 
 
 # Function to grow the side bar to the maximum size
 def grow_sidebar():
@@ -639,10 +660,10 @@ def colorize():
 
 
 main.update()
+
 # Frame of the window without action
 frame = Frame(main, bg='red', width=100, height=main.winfo_height())
 frame.place(x=0,y=0)
-
 
 # Left Frame of the main Window
 # Images
@@ -653,24 +674,19 @@ favoritesImg = PhotoImage(file="Images/favorites.png")
 profileImg = PhotoImage(file="Images/profile.png")
 settingsImg = PhotoImage(file = "Images/settings.png")
 
-
 # Side Bar Buttons
 home_button_icon = Button(frame, image = homeImg, bg="red", relief="flat",command = lambda: refresh(home_menu, logged_Menu))
-catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
-notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
-favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
-profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile_Menu)
-settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
-
-# Placing the buttons of the side bar
 home_button_icon.place(x=20, y=20)
+catalog_button_icon = Button(frame, image=catalogImg, bg="red", relief="flat", command = catalog)
 catalog_button_icon.place(x=20, y=90)
+notifications_button_icon = Button(frame, image = notificationsImg, bg="red", relief="flat", command = notifications)
 notifications_button_icon.place(x=20, y=160)
+favorites_button_icon = Button(frame, image=favoritesImg, bg="red", relief="flat", command = favorites)
 favorites_button_icon.place(x=20, y=230)
+profile_button_icon = Button(frame, image=profileImg, bg="red", relief="flat", command = profile_Menu)
 profile_button_icon.place(x=20, y=300)
+settings_button_icon = Button(frame, image=settingsImg, bg="red", relief="flat", command = settings)
 settings_button_icon.place(x=20, y=370)
-
-
 
 # Binding the mouse to the side bar to expand and shrink it when the mouse is over it
 # The binding function is used to deal with events, we use it with the frame component
@@ -680,6 +696,7 @@ frame.bind("<Leave>", lambda event: shrink_sidebar())
 
 # Function to display the home menu
 home_menu()
+
 # Function to display the current time
 clock()
 
