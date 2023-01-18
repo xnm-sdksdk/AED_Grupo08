@@ -183,7 +183,7 @@ def favorites():
 def profile_Menu():
     
     global users_file
-    users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
+    users_file = ".\\Files\\users.txt"
 
     file = open(users_file, 'r', encoding='utf-8')
     line = file.readlines()
@@ -501,7 +501,7 @@ def home_menu():
 def logged_Menu():
     
     # Read the File
-    users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
+    users_file = ".\\Files\\users.txt"
 
     file = open(users_file, 'r', encoding='utf-8')
     line = file.readlines()
