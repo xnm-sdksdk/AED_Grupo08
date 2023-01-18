@@ -5,15 +5,11 @@ from time import strftime
 import datetime
 import os
 
-# Favorites file path
 favorites_file = ".\\Files\\favorites.txt"
 
-# Comments file path
 comments_file = ".\\Files\\comments.txt"
 
-# Activity file path
-activity = ".\\Files\\activity.txt"
-
+activity_file = ".\Files\\activity.txt"
 
 def insertComment(userName, content, commentlbox):
     
@@ -31,6 +27,4 @@ def insertComment(userName, content, commentlbox):
         fcomments.write(fields)
         fcomments.close()
         
-        commentlbox.insert("end", userName + ":   " + activity + "   " + content + " .    " + date + "\n")
-        
-        
+        commentlbox.insert("end", userName + ":   " + content + " .    " + date + "\n")
