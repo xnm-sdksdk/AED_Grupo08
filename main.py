@@ -150,9 +150,8 @@ def favorites():
 
 
     # Activity Listbox
-    activitylbox = Combobox(favoritesPanel, values=["To Do", "Doing", "Done"], width=20)
+    activitylbox = Combobox(favoritesPanel ,width=20)
     activitylbox.place(x=300,y=75)
-
 
 
     # Comment on a favorite
