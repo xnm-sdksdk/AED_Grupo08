@@ -1,1 +1,2 @@
-nuno;2;@.;1;1;user;17/01/2023 17:53:57
+Bernardo;18/09/2001;bernardocoelhoferreira@gmail.com;12345;12345;user;18/01/2023 19:51:18
+João;12/02/2001;joao@gmail.com;12345;12345;user;18/01/2023 19:52:11
