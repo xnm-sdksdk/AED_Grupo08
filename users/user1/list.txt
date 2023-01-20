@@ -1,0 +1,3 @@
+Limpar;Tarefas Caseiras;todo;
+Arrumar;Tarefas Caseiras;todo;
+Cozinhar;Tarefas Caseiras;doing;

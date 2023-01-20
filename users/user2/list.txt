@@ -1,0 +1,18 @@
+Descansar;Desporto;done;
+Treinar;Desporto;done;
+Futebol;Desporto;done;
+AED;Testes;todo;
+BD;Testes;todo;
+CPM;Testes;todo;
+PW;Testes;done;
+POO;Testes;doing;
+Aspirar;Tarefas Caseiras;todo;
+Arrumar;Tarefas Caseiras;done;
+Limpar;Tarefas Caseiras;doing;
+Sapatilhas;Desporto;todo;
+Cenas;Desporto;todo;
+Correr;Desporto;doing;
+ReuniaoMatinal;Trabalho;todo;
+Aulas;Trabalho;todo;
+Estudar;Trabalho;todo;
+Desgin;Testes;done;
