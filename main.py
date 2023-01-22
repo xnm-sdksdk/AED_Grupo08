@@ -40,7 +40,7 @@ def catalog():
     selectCategoria.place(x=280, y=115)
     
     # Filter Button
-    filterTask = Button(panelCatalog, text="Ver", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000", command=filterTasks)
+    filterTask = Button(panelCatalog, text="Ver", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: filterTasks(userName.get(), selectCategoria.get(), treeTodo, treeDoing, treeDone))
     filterTask.place(x=450, y=80)
     
     # Entry Label - To Do List
@@ -56,23 +56,23 @@ def catalog():
     addTask.place(x=168, y=110)
 
     # Delete Task Button
-    deleteTask = Button(panelCatalog, text="Delete Task", width=16, font=("Sans Serif", 10, "bold"), fg="#000000", command = deleteSelectedTask)
+    deleteTask = Button(panelCatalog, text="Delete Task", width=16, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: deleteSelectedTask(userName.get(), treeTodo, treeDoing, treeDone))
     deleteTask.place(x=45,y=190)
 
     # Sort ASC Button
-    sortAscTask = Button(panelCatalog, text="Sort ASC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=sort)
+    sortAscTask = Button(panelCatalog, text="Sort ASC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: sort(userName.get()))
     sortAscTask.place(x=45,y=235)
 
     # Sort DESC Button
-    sortDescTask = Button(panelCatalog, text="Sort DESC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000")
+    sortDescTask = Button(panelCatalog, text="Sort DESC", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: sortReverse(userName.get()))
     sortDescTask.place(x=45,y=280)
     
     # Delete All Button
-    deleteAllTask = Button(panelCatalog, text="Delete All", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=deleteAll)
+    deleteAllTask = Button(panelCatalog, text="Delete All", width=16, height=1, font=("Sans Serif", 10, "bold"), fg="#000000", command=lambda: deleteAll(userName.get(), selectCategoria.get(), treeTodo, treeDoing, treeDone))
     deleteAllTask.place(x=45,y=325)
 
     # Add to favorites Button
-    addfavoritesButton = Button(panelCatalog, text="Add to Favorites", width=16, font=("Sans Serif", 10, "bold"), fg="#000000")
+    addfavoritesButton = Button(panelCatalog, text="Add to Favorites", width=16, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: addFavorites(userName.get(), selectCategoria.get(), treeTodo, treeDoing, treeDone))
     addfavoritesButton.place(x=45,y=370)
     
     # TVTodo
@@ -98,186 +98,11 @@ def catalog():
     treeDone.heading("Done", text = "Done")
     treeDone.place(x=450, y=170)
     treeDone.delete(*treeDone.get_children())
-    
-    btnDoing = Button(panelCatalog, text="Doing", command=estadoDoing)
-    btnDoing.place(x=350, y=410)
-    btnDone = Button(panelCatalog, text="Done", command=estadoDone)
-    btnDone.place(x=410, y=410)    
-    filterTasks()
-    
-    
-def sort():
-    
-    treeDone.heading("Done", command=lambda: treeview_sort_column(treeDone, 0, False))
+       
+    btnNextStep = Button(panelCatalog, text="Doing/Done", command=lambda: estadoDoingDone(userName.get(), selectCategoria.get(), treeTodo, treeDoing, treeDone))
+    btnNextStep.place(x=355, y=410)    
+ 
 
-    
-def filterTasks():
-    
-    treeTodo.delete(*treeTodo.get_children())
-    treeDoing.delete(*treeDoing.get_children())
-    treeDone.delete(*treeDone.get_children())
-    
-    # Add to the treeview 
-    listaTarefas = ".\\users\\" + userName.get() + "\\list.txt"
-    fListTasks = open(listaTarefas, "r", encoding="utf-8")
-    listaTasks = fListTasks.readlines()
-    fListTasks.close()
-    for linha in listaTasks:
-        campos = linha.split(";")
-        if campos[1] == selectCategoria.get() and campos[2] == "todo":
-            treeTodo.insert("", "end", values = (campos[0]))   
-        if campos[1] == selectCategoria.get() and campos[2] == "doing": 
-            treeDoing.insert("", "end", values = (campos[0]))
-        if campos[1] == selectCategoria.get() and campos[2] == "done": 
-            treeDone.insert("", "end", values = (campos[0]))
-            
-    
-def estadoDoing():
-    
-    row_idDoing = treeTodo.focus()
-    linhaDoing = treeTodo.item(row_idDoing)
-    nameTaskDoing = linhaDoing["values"][0]
-    
-    listaTarefas = ".\\users\\" + userName.get() + "\\list.txt"
-    fListTasks = open(listaTarefas, "r", encoding="utf-8")
-    listaTasks = fListTasks.readlines()
-    fListTasks.close()
-    for linha in listaTasks:
-        campos = linha.split(";")
-        if campos[0] == nameTaskDoing and campos[2] == "todo":
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != linha.strip("\n"):
-                            fListaDoing.write(line)
-            with open (listaTarefas, "a") as fListaDoing:
-                linhaAlteradaDoing= ("\n" + nameTaskDoing + ";" + selectCategoria.get() + ";" + "doing" + ";")
-                fListaDoing.write(linhaAlteradaDoing)
-                fListaDoing.close()
-                with open(listaTarefas, "r") as fListaDoing:
-                    lines = fListaDoing.readlines()
-                    with open(listaTarefas, "w") as fListaDoing:
-                        for line in lines:
-                            if line.strip("\n") != "":
-                                fListaDoing.write(line)
-      
-def estadoDone():
-    
-    row_idDone = treeDoing.focus()
-    linhaDone = treeDoing.item(row_idDone)
-    global nameTaskDone
-    nameTaskDone = linhaDone["values"][0]
-    
-    listaTarefas = ".\\users\\" + userName.get() + "\\list.txt"
-    fListTasks = open(listaTarefas, "r", encoding="utf-8")
-    listaTasks = fListTasks.readlines()
-    fListTasks.close()
-    for linha in listaTasks:
-        campos = linha.split(";")
-        if campos[0] == nameTaskDone and campos[2] == "doing":
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != linha.strip("\n"):
-                            fListaDoing.write(line)
-            with open (listaTarefas, "a") as fListaDoing:
-                linhaAlteradaDone = ("\n" + nameTaskDone + ";" + selectCategoria.get() + ";" + "done" + ";")
-                fListaDoing.write(linhaAlteradaDone)
-                fListaDoing.close()
-                with open(listaTarefas, "r") as fListaDoing:
-                    lines = fListaDoing.readlines()
-                    with open(listaTarefas, "w") as fListaDoing:
-                        for line in lines:
-                            if line.strip("\n") != "":
-                                fListaDoing.write(line)
-    
-    
-def deleteSelectedTask():
-    
-    row_idTodo = treeTodo.focus()
-    linhaTodo = treeTodo.item(row_idTodo)
-    linhaSelecionadaTodo = linhaTodo["values"]
-    
-    row_idDoing = treeDoing.focus()
-    linhaDoing = treeDoing.item(row_idDoing)
-    linhaSelecionadaDoing = linhaDoing["values"]
-    
-    row_idDone = treeDone.focus()
-    linhaDone = treeDone.item(row_idDone)
-    linhaSelecionadaDone = linhaDone["values"]
-   
-    listaA = []
-    if linhaSelecionadaTodo != "":
-       listaA.append(linhaSelecionadaTodo)
-    if linhaSelecionadaDoing != "":
-        listaA.append(linhaSelecionadaDoing)
-    if linhaSelecionadaDone != "":   
-        listaA.append(linhaSelecionadaDone)
-    taskRemove = str(listaA[0])
-    taskRemoveA = taskRemove.replace("[", "").replace("]", "").replace("'", "")
-    
-    listaTarefas = ".\\users\\" + userName.get() + "\\list.txt"
-    fListTasks = open(listaTarefas, "r", encoding="utf-8")
-    listaTasks = fListTasks.readlines()
-    fListTasks.close()
-    for linha in listaTasks:
-        campos = linha.split(";")
-        if campos[0] == taskRemoveA:
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != linha.strip("\n"):
-                            fListaDoing.write(line)
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != "":
-                            fListaDoing.write(line)
-                            
-
-
-    
-    
-def deleteAll():
-    
-    treeTodo.delete(*treeTodo.get_children())
-    treeDoing.delete(*treeDoing.get_children())
-    treeDone.delete(*treeDone.get_children())
-    
-    listaTarefas = ".\\users\\" + userName.get() + "\\list.txt"
-    fListTasks = open(listaTarefas, "r", encoding="utf-8")
-    listaTasks = fListTasks.readlines()
-    fListTasks.close()
-    for linha in listaTasks:
-        campos = linha.split(";")
-        if campos[1] == selectCategoria.get():
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != linha.strip("\n"):
-                            fListaDoing.write(line)
-            with open(listaTarefas, "r") as fListaDoing:
-                lines = fListaDoing.readlines()
-                with open(listaTarefas, "w") as fListaDoing:
-                    for line in lines:
-                        if line.strip("\n") != "":
-                            fListaDoing.write(line)
-    
-    
-    
-
-   
-
-    
-    
-    
-    
-    
     
     
     
@@ -307,6 +132,8 @@ def deleteAll():
     
     
     
+"""POR FAZER"""
+
 
 # FUNCTION NOTIFICATIONS MENU
 def notifications():
@@ -330,6 +157,7 @@ def notifications():
     notificationsNumber = Label(notificationsPanel, text="3", font=("Sans Serif", 20, "bold"), fg="red")
     notificationsNumber.place(x=220,y=150)
 
+"""POR FAZER"""
 
 # FUNCTION FAVORITES MENU
 def favorites():
@@ -373,54 +201,78 @@ def favorites():
     # Add a comment Button
     commentBtn = Button(favoritesPanel, text="Comment", width=6, height=2, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: insertComment(userName.get(), content.get(), activity.get(), commentlbox))
     commentBtn.place(x=600, y=140)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 # FUNCTION PROFILE MENU 
 def profile_Menu():
     
-    global users_file
-    users_file = ".\\Files\\users.txt"
-    # users_file = "/home/xnm/Documents/Algoritmia_Estrutura_de_Dados/Projeto_2022_2023/AED_Project_22_23/Files/users.txt"
-
-    file = open(users_file, 'r', encoding='utf-8')
-    line = file.readlines()
-    users_file = line[0].split(";")
-    file.close()
-    
-    """
-    [0] - Name
-    [1] - Age
-    [2] - Email
-    [3] - Password
-    [4] - Password Confirmation
-    [5] - Type of User
-    """
+    usersFile = ".\\Files\\users.txt"
+    users = open(usersFile, "r", encoding="utf-8") 
+    for line in users:
+        campos = line.split(";")
+        if userName.get() == campos[0]:
+            name = campos[0]
+            pw = campos[1]
+            email = campos[2]   
     
     # Paned Window Profile
-    profilePanel = PanedWindow(main, orient=HORIZONTAL, width= 800, height=500)
-    profilePanel.place(x=200,y=50)
+    profilePanel = PanedWindow(main, relief="sunken", borderwidth=2 , width= 600, height=450)
+    profilePanel.place(x=220,y=20)
     
     # Username Info
-    usernameInfo = Label(profilePanel, text="Username: {0}".format(users_file[0]), font=("Sans Serif", 15, "bold"), fg="#000000")
+    usernameInfo = Label(profilePanel, text="Username: {0}".format(name), font=("Sans Serif", 15, "bold"), fg="#000000")
     usernameInfo.place(x=50,y=0)
     
     # Email Info
-    emailInfo = Label(profilePanel, text="Email: {0}".format(users_file[2]), font=("Sans Serif", 15, "bold"), fg="#000000")
+    emailInfo = Label(profilePanel, text="Email: {0}".format(email), font=("Sans Serif", 15, "bold"), fg="#000000")
     emailInfo.place(x=50,y=50)
     
     # Password Info
-    passwordInfo = Label(profilePanel, text="Password: {0}".format(users_file[3]), font=("Sans Serif", 15, "bold"), fg="#000000")
+    passwordInfo = Label(profilePanel, text="Password: {0}".format(pw), font=("Sans Serif", 15, "bold"), fg="#000000")
     passwordInfo.place(x=50,y=100)
     
+    """
     check = Checkbutton(profilePanel, text="Show Password", font=("Sans Serif", 15, "bold"), fg="#000000")
     check.place(x=50,y=150)
-    
+    """
     # Section to Change the user info
     # Label to change name
     nameChangeLabel = Label(profilePanel, text="Change Name", font=("Sans Serif", 15, "bold"), fg="#000000")
     nameChangeLabel.place(x=50,y=250)
     
     # Entry to change name
-    nameChangeEntry = Entry(profilePanel)
+    nameChanged = StringVar()
+    nameChangeEntry = Entry(profilePanel, textvariable=nameChanged)
     nameChangeEntry.place(x=300,y=255)
     
     # Label Change Password
@@ -428,7 +280,8 @@ def profile_Menu():
     pwdChangelbl.place(x=50,y=350)
     
     # Entry Change Password
-    pwdChangeEntry = Entry(profilePanel)
+    passwordChanged = StringVar()
+    pwdChangeEntry = Entry(profilePanel, textvariable=passwordChanged)
     pwdChangeEntry.place(x=300,y=355)
     
     # Label Change Email
@@ -436,14 +289,43 @@ def profile_Menu():
     emailChangelbl.place(x=50,y=300)
     
     # Entry Change Email
-    emailChangeEntry = Entry(profilePanel)
+    emailChanged = StringVar()
+    emailChangeEntry = Entry(profilePanel, textvariable=emailChanged)
     emailChangeEntry.place(x=300,y=305)
     
     # Defining Buttons to apply changes
-    applyChanges = Button(profilePanel, text="Apply", width=12, height=2, font=("Sans Serif", 10, "bold"), fg="#000000")
- 
-    # Place buttons
-    applyChanges.place(x=550,y=330)
+    applyChanges = Button(profilePanel, text="Apply", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: personal_details(userName.get(), nameChanged.get(), passwordChanged.get(), emailChanged.get()))
+    applyChanges.place(x=500,y=330)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+"""POR FAZER"""    
 
 def settings():
     
@@ -520,6 +402,36 @@ def settings():
     
     timeSpaceMonth = Label(settingsPanel, text="Activity Last Month: ", font=("Sans Serif", 12, "bold"), fg="#000000")
     timeSpaceMonth.place(x=50,y=390)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
 # Register Window

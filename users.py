@@ -1,5 +1,3 @@
-
-# Library's: Tkinter UI and messagebox
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
@@ -49,14 +47,14 @@ def authentication(userNameR, userAge, userMail, userPwdR, userPwdCheck, userTyp
         messagebox.showerror("Register", "Email is not written correctly.")
         return
     
-    usersGlobalFileA = open(usersGlobal, "r", encoding="utf-8")
-    usersGlobalFileRead = usersGlobalFileA.readlines()
-    usersGlobalFileA.close()
-    for line in usersGlobalFileRead:
+    
+    # Verification to check if the username already exists
+    usersGlobalFile = open(usersGlobal, "r", encoding="utf-8")
+    for line in usersGlobalFile:
         campos = line.split(";")
         if userNameR == campos[0]:
             messagebox.showerror("Register", "Username already exists!")
-            return    
+            return  
         # Everything is correct append to the files
         else:
             if os.path.exists(pastaUsers):
@@ -74,11 +72,17 @@ def authentication(userNameR, userAge, userMail, userPwdR, userPwdCheck, userTyp
                 date = time.strftime("%d/%m/%Y;%H:%M:%S")
                 
                 usersFile = open(usersGlobal, "a", encoding="utf-8")
-                usersFileFields = userNameR + ";" + userAge + ";" + userMail + ";" + userPwdR + ";" + userPwdCheck + ";" + userType + ";" + date + ";" + "\n"
+                usersFileFields = "\n" + userNameR + ";" + userAge + ";" + userMail + ";" + userPwdR + ";" + userPwdCheck + ";" + userType + ";" + date + ";" + "\n"
                 usersFile.write(usersFileFields)
                 usersFile.close()
                 messagebox.showinfo("Register", "Account has been created successfully!")
                 panelRegister.place_forget()
+                with open(usersGlobal, "r") as fListaDoing:
+                    lines = fListaDoing.readlines()
+                    with open(usersGlobal, "w") as fListaDoing:
+                        for line in lines:
+                            if line.strip("\n") != "":
+                                fListaDoing.write(line)
                 return
 
 
