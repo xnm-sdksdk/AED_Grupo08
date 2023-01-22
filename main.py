@@ -242,7 +242,7 @@ def profile_Menu():
         campos = line.split(";")
         if userName.get() == campos[0]:
             name = campos[0]
-            pw = campos[1]
+            pw = campos[3]
             email = campos[2]   
     
     # Paned Window Profile
@@ -294,7 +294,7 @@ def profile_Menu():
     emailChangeEntry.place(x=300,y=305)
     
     # Defining Buttons to apply changes
-    applyChanges = Button(profilePanel, text="Apply", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: personal_details(userName.get(), nameChanged.get(), passwordChanged.get(), emailChanged.get()))
+    applyChanges = Button(profilePanel, text="Apply", width=7, height=3, font=("Sans Serif", 10, "bold"), fg="#000000", command= lambda: personal_details(userName.get(), nameChanged.get(), passwordChanged.get(), emailChanged.get(), login))
     applyChanges.place(x=500,y=330)
     
     

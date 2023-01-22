@@ -2,4 +2,5 @@ Aulas;Trabalho;done;
 Descansar;Desporto;done;
 Futebol;Desporto;done;
 ReuniaoMatinal;Trabalho;done;
-Sapatilhas;Desporto;todo;
+Sapatilhas;Desporto;doing;
+Correr;Desporto;done;

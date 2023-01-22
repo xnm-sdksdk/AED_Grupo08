@@ -5,7 +5,7 @@ import os
 
 users = ".\\Files\\users.txt"
 
-def personal_details(userName, nameChanged, passwordChanged, emailChanged):
+def personal_details(userName, nameChanged, passwordChanged, emailChanged, login):
     os.rename(".\\users\\" + userName,".\\users\\" + nameChanged)
     
     fUsers = open(users, "r", encoding="utf-8")
@@ -31,6 +31,8 @@ def personal_details(userName, nameChanged, passwordChanged, emailChanged):
                     for line in lines:
                         if line.strip("\n") != "":
                             fListaDoing.write(line)
+                            
+    login()
        
     
     
